@@ -36,7 +36,7 @@
 <h3 align="center">MySugr Pet</h3>
 
   <p align="center">
-    MySugrPet is an insulin tracking application for pets with diabetes. If you have a diabetic pet, you know keeping track of the date, time, dosage and injection location is not an easy task. This tracker is simple but extremely helpful to make sure you are doing the right thing for your pet to stay healthy. Keep track, make changes, print your records to show your vet are a few of the many benefits of MySugrPet!
+    MySugrPet is an insulin tracking application for pets with diabetes. 
     <br />
     <a href="https://github.com/dlongodev/my-sugr-pet"><strong>Explore the docs »</strong></a>
     <br />
@@ -82,7 +82,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-MySugrPet is an insulin tracking application for pets with diabetes. If you have a diabetic pet, you know keeping track of the date, time, dosage and injection location is not an easy task. This tracker is simple but extremely helpful to make sure you are doing the right thing for your pet to stay healthy. Keep track, make changes, print your records to show your vet are a few of the many benefits of MySugrPet!
+If you have a diabetic pet, you know keeping track of the date, time, dosage and injection location is not an easy task. This tracker is simple but extremely helpful to make sure you are doing the right thing for your pet to stay healthy. Keep track, make changes, print your records to show your vet are a few of the many benefits of MySugrPet!
 
 [![Product Name Screen Shot][product-screenshot]](https://dlongodev.github.pages.io/my-sugr-pet)
 
@@ -121,18 +121,19 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/dlongodev/my-sugr-pet.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+3. Create `.env` file
    ```js
-   const API_KEY = 'ENTER YOUR API';
+   PORT='3000'
+   MONGODB_URI='mongodb://localhost:27017/mypet'
+   SESSION_SECRET='create-your-session-secret'
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -152,11 +153,25 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- ROADMAP -->
 ## Roadmap
+### MVP / User Stories
 
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-    - [] Nested Feature
+- [ ] As a user, I can register my information so I can log in when I want to use the tracker
+- [ ] As a user, I can create a profile for my pet so I can have his information saved for when I need it
+- [ ] As a user, I can choose my pet to be a dog or cat and the interface will show icons that present my pet
+- [ ] As a user, I can easily see the buttons I need to press so I can begin tracking my pet insulin injections
+- [ ] As a user, when I need to choose the injection location, I can easily see the last 4 injections so I can make the right location decision
+- [ ] As a user, I want to be able to fix the data if I make a mistake
+- [ ] As a user, I want to be able to delete an entry if I make a mistake
+- [ ] As a user, I want to be able to make changes to my pet profile or user information
+
+### Stretch Goals
+
+- [ ] As a user, I want to export the data so I can show it to my vet
+- [ ] As a user, I want to add my pet photo to his profile
+- [ ] As a user, I want to customize the pet character colors/breed to match my pet
+- [ ] As a user, I want to keep a record of my pet medical history on its profile, from glucose levels to observational behaviors
+- [ ] As a user, I want to have a record of vet visits and expenses
+- [ ] As a user, I want to create reminders for daily insulin shots, food, water, and exercise
 
 See the [open issues](https://github.com/dlongodev/my-sugr-pet/issues) for a full list of proposed features (and known issues).
 
