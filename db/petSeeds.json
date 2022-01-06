@@ -1,0 +1,9 @@
+[
+    {
+        "kind": "dog",
+        "petName": "Cielo",
+        "breed": "maltese",
+        "color": "white",
+        "age": 12
+    }
+]

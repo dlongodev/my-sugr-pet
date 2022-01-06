@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../models/user')
+const Shot = require('../models/shots')
 
 // INDEX
 // router.get('/', (req, res) => {
@@ -9,43 +9,44 @@ const User = require('../models/user')
 
 
 router.get('/', (req, res, next) => {
-    User.find({})
-        .then(users => res.json(users))
+    Shot.find({})
+        .populate('owner')
+        .then(shots => res.json(shots))
         .catch(next)
 });
 
 // SHOW: Get a specific item by it's ID
 router.get('/:id', (req, res, next) => {
-    User.findById(req.params.id)
-        .then((user) => res.json(user))
+    Shot.findById(req.params.id)
+        .populate('owner')
+        .then((shot) => res.json(shot))
         .catch(next)
 })
 
 // POST: To create a new data
 router.post('/', (req, res, next) => {
-    // console.log(req.body)
-    User.create(req.body)
-        .then(user => res.json(user))
+    Shot.create(req.body)
+        .then(shot => res.json(shot))
         .catch(next)
 })
 
-// GET ~> /users/: id / edit
+// GET ~> /shot/: id / edit
 router.get('/:id/edit', (req, res, next) => {
-    User.findById(req.params.id)
-        .then(user => res.json(user))
+    Shot.findById(req.params.id)
+        .then(shot => res.json(shot))
         .catch(next)
 })
 
-// PUT ~> /users/: id
+// PUT ~> /shot/: id
 router.put('/:id', (req, res, next) => {
-    User.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        .then(user => res.json(user))
+    Shot.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then(shot => res.json(shot))
         .catch(next)
 })
 
-// DELETE ~> /users/: id
+// DELETE ~> /shot/: id
 router.delete('/:id', (req, res, next) => {
-    User.findByIdAndDelete(req.params.id)
+    Shot.findByIdAndDelete(req.params.id)
         .then(() => res.json({
             message: "DELETED WORKED"
         }))

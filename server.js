@@ -4,8 +4,8 @@ const app = express()
 const mongoose = require('mongoose')
 
 const userController = require('./controllers/userController')
-// const petController = require('./controllers/petController')
-// const insulinController = require('./controllers/insulinController')
+const petController = require('./controllers/petController')
+const shotsController = require('./controllers/shotsController')
 // const sessionsController = require('./controllers/sessionsController')
 
 const expressEjsLoyouts = require('express-ejs-layouts')
@@ -59,9 +59,8 @@ app.set('view engine', 'ejs')
 
 // session controllers------------------
 app.use('/user', userController)
-// app.use('/user', authRequired, userController)
-// app.use('/pet', authRequired, petController)
-// app.use('/insulin', authRequired, insulinController)
+app.use('/pet', petController)
+app.use('/shots', shotsController)
 // app.use('/session', sessionsController)
 
 // LISTENER //////////////////////////////////////////////////////////////

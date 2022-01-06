@@ -4,14 +4,14 @@ const UserSchema = new mongoose.Schema({
     name: String,
     email: {
         type: String,
-        unique: true,
-        required: true
+        // unique: true,
+        // required: true
     },
     password: {
         type: String,
-        required: true
+        // required: true
     },
-    userPhoto: String
+    // userPhoto: String
 })
 
 const User = mongoose.model('User', UserSchema)

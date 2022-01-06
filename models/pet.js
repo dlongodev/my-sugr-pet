@@ -1,7 +1,7 @@
 const mongoose = require('../db/connection')
 
 const PetSchema = new mongoose.Schema({
-    name: String,
+    petName: String,
     kind: String,
     breed: String,
     color: String,
