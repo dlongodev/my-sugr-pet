@@ -2,7 +2,10 @@ const mongoose = require('../db/connection')
 
 const PetSchema = new mongoose.Schema({
     petName: String,
-    kind: String,
+    kind: {
+        cat: Boolean,
+        dog: Boolean
+    },
     breed: String,
     color: String,
     age: Number,

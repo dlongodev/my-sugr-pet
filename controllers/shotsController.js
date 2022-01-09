@@ -24,6 +24,7 @@ router.get('/:id', (req, res, next) => {
 })
 
 // POST: To create a new data
+// make sure to attach this post route to pet 
 router.post('/', (req, res, next) => {
     Shot.create(req.body)
         .then(shot => res.json(shot))

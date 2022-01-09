@@ -1,0 +1,8 @@
+
+<h2>Pets Page</h2>
+<p>your pet</p>
+<% pets.forEach(pet=> { %>
+    <h3>
+       <a href="/pet/<%= pet._id %> "> <%= pet.petName %></a>
+    </h3>
+    <% }) %>

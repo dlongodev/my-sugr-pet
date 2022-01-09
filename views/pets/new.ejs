@@ -1,0 +1,28 @@
+<h2>Create Your Pet Profile</h2>
+
+<form action="/pet" method="POST">
+    <fieldset>
+        <p>Choose kind of pet</p>
+        <label for="dog">dog</label>
+        <input type="radio" name="kind[dog]" id="dog">
+        <label for="cat">cat</label>
+        <input type="radio" name="kind[cat]" id="cat">
+    </fieldset>
+    <fieldset>
+        <label for="petName">Your Pet's Name:</label>
+        <input type="text" name="petName" id="petName">
+    </fieldset>
+    <fieldset>
+        <label for="breed">Breed:</label>
+        <input type="breed" name="breed" id="breed">
+    </fieldset>
+    <fieldset>
+        <label for="color">Color:</label>
+        <input type="text" name="color" id="color">
+    </fieldset>
+    <fieldset>
+        <label for="age">Age:</label>
+        <input type="text" name="age" id="age">
+    </fieldset>
+    <input type="submit" value="Create Pet Profile">
+</form>
