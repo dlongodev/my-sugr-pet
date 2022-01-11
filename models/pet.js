@@ -1,4 +1,5 @@
 const mongoose = require('../db/connection')
+const Shot = require('./shots')
 
 const PetSchema = new mongoose.Schema({
     petName: String,
@@ -12,6 +13,16 @@ const PetSchema = new mongoose.Schema({
             ref: 'Shot'
         }
     ]
+})
+
+PetSchema.post('findOneAndDelete', async function (doc) {
+    if (doc) {
+        await Shot.deleteMany({
+            _id: {
+                $in: doc.shots
+            }
+        })
+    }
 })
 
 const Pet = mongoose.model('Pet', PetSchema)

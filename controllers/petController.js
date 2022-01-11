@@ -38,6 +38,7 @@ router.get('/:id/edit', async (req, res) => {
 // PUT ~> /pet/: id
 router.put('/:id', async (req, res, next) => {
     const editPet = await Pet.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    req.flash('success', 'Successfully updated your pet information!')
     res.redirect(`/pet/${editPet._id}`)
 })
 

@@ -1,23 +1,16 @@
 const mongoose = require('../db/connection')
+const passportLocalMongoose = require('passport-local-mongoose')
+
 
 const userSchema = new mongoose.Schema({
-    name: String,
     email: {
         type: String,
-        // unique: true,
-        // required: true
-    },
-    password: {
-        type: String,
-        // required: true
-    },
-    // userPhoto: String
-    // pets: [
-    //     {type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Pet'}
-    // ]
-
+        required: true,
+        unique: true
+    }
 })
+
+userSchema.plugin(passportLocalMongoose)
 
 // DELETE ALL ASSOCIATED PETS AFTER A USER IS DELETED
 // userSchema.post('findOneAndDelete', async function (user) {
@@ -28,5 +21,4 @@ const userSchema = new mongoose.Schema({
 // })
 
 const User = mongoose.model('User', userSchema)
-
 module.exports = User
