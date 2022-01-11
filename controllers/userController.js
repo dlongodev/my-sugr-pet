@@ -1,59 +1,45 @@
 const express = require('express')
 const router = express.Router()
+const passport = require('passport');
 const User = require('../models/user')
-const Pet = require('../models/pet')
+// const Pet = require('../models/pet')
 
-// Register: registration form
+// Register ----------------------
 router.get('/register', (req, res) => {
     res.render('users/register')
 })
 
-// INDEX
-router.get('/', (req, res, next) => {
-    User.find({})
-        .then(users => res.json(users))
-        .catch(next)
-});
+router.post('/register', async (req, res) => {
+    try {
+        const { email, username, password } = req.body;
+        const user = await new User({ email, username });
+        const registeredUser = await User.register(user, password);
+        req.login(registeredUser, err => {
+            if (err) return next(err)
+            res.redirect('/pet/new')
+        })
+    } catch (e) {
+        req.flash('error', e.message);
+        res.redirect('register');
+    }
+})
 
-// // SHOW: Get a specific item by it's ID
-// router.get('/:id', async (req, res, next) => {
-//         // const user = await User.findById(req.params.id)
-//         // res.render('user/show')
-//     User.findById(req.params.id)
-//         .then((user) => res.json(user))
-//         .catch(next)
-// })
+// Login ----------------------
+router.get('/login', (req, res) => {
+    res.render('users/login')
+})
 
-// // POST: To create a new data
-// router.post('/', (req, res, next) => {
-//     // console.log(req.body)
-//     User.create(req.body)
-//         .then(user => res.json(user))
-//         .catch(next)
-// })
+router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), (req, res) => {
+    req.flash('success', 'welcome back!');
+    res.redirect('/pet');
+})
 
-// // GET ~> /users/: id / edit
-// router.get('/:id/edit', (req, res, next) => {
-//     User.findById(req.params.id)
-//         .then(user => res.json(user))
-//         .catch(next)
-// })
-
-// // PUT ~> /users/: id
-// router.put('/:id', (req, res, next) => {
-//     User.findByIdAndUpdate(req.params.id, req.body, { new: true })
-//         .then(user => res.json(user))
-//         .catch(next)
-// })
-
-// // DELETE ~> /users/: id
-// router.delete('/:id', (req, res, next) => {
-//     User.findByIdAndDelete(req.params.id)
-//         .then(() => res.json({
-//             message: "DELETED WORKED"
-//         }))
-//         .catch(next)
-// })
+// Logout ----------------------
+router.get('/logout', (req, res) => {
+    req.logOut()
+    req.flash('success', 'Logged Out!')
+    res.redirect('/')
+})
 
 //--------><--------//
 

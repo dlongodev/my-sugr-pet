@@ -51,9 +51,17 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
     res.locals.success = req.flash('success')
     res.locals.error = req.flash('error')
+    res.locals.currentUser = req.user
     next();
 })
 
+const isLoggedIn = (req, res, next) => {
+    if (!req.isAuthenticated()) {
+        req.flash('error', 'You must be signed in.')
+        return res.redirect('/login')
+    }
+    next();
+}
 
 // rendering home page------------------
 app.get('/', (req, res) => {

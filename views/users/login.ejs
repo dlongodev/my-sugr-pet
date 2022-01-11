@@ -1,13 +1,20 @@
-<h2>Log In</h2>
-
-<form action="/session/login" method="POST">
-    <fieldset>
-        <label for="email">Email:</label>
-        <input type="text" name="email" id="email">
-    </fieldset>
-    <fieldset>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-    </fieldset>
-    <input type="submit" value="Log In">
-</form>
+<section class="container">
+    <div class="row app-height">
+        <div class="col-md-6 offset-md-4 col-xl-4 offset-xl-4 h-100">
+            <div class="text-center my-3">
+                <h2>Login</h2>
+            </div>
+            <form action="/login" method="POST">
+                <fieldset class="form-group">
+                    <label for="username">Username:</label>
+                    <input class="form-control" type="text" name="username" id="username">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="form-control" type="password" name="password" id="password">
+                    </fieldset>
+                <input class="btn btn-primary btn-md btn-block" type="submit" value="Login">
+                </form>
+        </div>
+        </div>
+        </section>
