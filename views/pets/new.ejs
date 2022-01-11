@@ -1,28 +1,47 @@
-<h2>Create Your Pet Profile</h2>
-
-<form action="/pet" method="POST">
-    <fieldset>
-        <p>Choose kind of pet</p>
-        <label for="dog">dog</label>
-        <input type="radio" name="kind[dog]" id="dog">
-        <label for="cat">cat</label>
-        <input type="radio" name="kind[cat]" id="cat">
-    </fieldset>
-    <fieldset>
-        <label for="petName">Your Pet's Name:</label>
-        <input type="text" name="petName" id="petName">
-    </fieldset>
-    <fieldset>
-        <label for="breed">Breed:</label>
-        <input type="breed" name="breed" id="breed">
-    </fieldset>
-    <fieldset>
-        <label for="color">Color:</label>
-        <input type="text" name="color" id="color">
-    </fieldset>
-    <fieldset>
-        <label for="age">Age:</label>
-        <input type="text" name="age" id="age">
-    </fieldset>
-    <input type="submit" value="Create Pet Profile">
-</form>
+<section class="container">
+    <div class="row app-height">
+        <div class="col-md-6 offset-md-4 col-xl-4 offset-xl-4 h-100">
+            <div class="text-center my-3">
+                <h3>Create Your Pet Profile</h3>
+            </div>
+            <form action="/pet" method="POST">
+                <fieldset class="form-group text-center">
+                    <div class="row">
+                        <legend>Choose kind of pet</legend>
+                        <div class="col-sm-12">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kind" id="dog" value="Dog">
+                                <label class="form-check-label" for="dog">
+                                    Dog
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kind" id="cat" value="Cat">
+                                <label class="form-check-label" for="cat">
+                                    Cat
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="petName">Your Pet's Name:</label>
+                    <input class="form-control" type="text" name="petName" id="petName">
+                    </fieldset>
+                <fieldset class="form-group">
+                    <label for="breed">Breed:</label>
+                    <input class="form-control" type="text" name="breed" id="breed">
+                    </fieldset>
+                <fieldset class="form-group">
+                    <label for="color">Color:</label>
+                    <input class="form-control" type="text" name="color" id="color">
+                    </fieldset>
+                <fieldset class="form-group">
+                    <label for="age">Age:</label>
+                    <input class="form-control" type="text" name="age" id="age">
+                    </fieldset>
+                    <input class="btn btn-primary btn-md btn-block" type="submit" value="Create Pet Profile">
+                    </form>
+        </div>
+        </div>
+        </section>

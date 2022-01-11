@@ -1,6 +1,6 @@
 const mongoose = require('../db/connection')
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name: String,
     email: {
         type: String,
@@ -19,6 +19,14 @@ const UserSchema = new mongoose.Schema({
 
 })
 
-const User = mongoose.model('User', UserSchema)
+// DELETE ALL ASSOCIATED PETS AFTER A USER IS DELETED
+// userSchema.post('findOneAndDelete', async function (user) {
+//     if (user.pets.length) {
+//         const res = await Pet.deleteMany({ _id: { $in: user.pets } })
+//         console.log(res);
+//     }
+// })
+
+const User = mongoose.model('User', userSchema)
 
 module.exports = User

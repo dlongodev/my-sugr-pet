@@ -3,25 +3,33 @@
         "date": "22-01-02",
         "time": "9:30am",
         "dosage": 2,
-        "injectionSite": "front-right"
+        "injectionSite": {
+            "front_right": true
+        }
     },
         {
         "date": "22-01-02",
         "time": "9:30pm",
         "dosage": 2,
-        "injectionSite": "front-left"
+        "injectionSite": {
+            "front_left": true
+        }
     },
     {
         "date": "22-01-03",
         "time": "9:45am",
         "dosage": 4,
-        "injectionSite": "back-right"
+        "injectionSite": {
+            "back_right": true
+        }
     },
     {
         "date": "22-01-03",
         "time": "9:45pm",
         "dosage": 4,
-        "injectionSite": "back-left"
+        "injectionSite": {
+            "back_left": true
+        }
     }
 
 ]

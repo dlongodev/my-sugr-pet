@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
+const Pet = require('../models/pet')
 
 // INDEX
 
@@ -12,11 +13,11 @@ router.get('/', (req, res, next) => {
 
 // SHOW: Get a specific item by it's ID
 router.get('/:id', async (req, res, next) => {
-        const user = await User.findById(req.params.id)
-        res.render('user/show')
-    // User.findById(req.params.id)
-    //     .then((user) => res.json(user))
-    //     .catch(next)
+        // const user = await User.findById(req.params.id)
+        // res.render('user/show')
+    User.findById(req.params.id)
+        .then((user) => res.json(user))
+        .catch(next)
 })
 
 // POST: To create a new data

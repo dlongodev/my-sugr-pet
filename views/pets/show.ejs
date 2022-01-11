@@ -1,1 +1,25 @@
-<h2>Here's Your Pet</h2>
+<section class="container text-center">
+   <div>
+      <p><a href="/pet">All My Pets</a></p>
+   </div>
+   <div class="row text-center app-height justify-content-md-center align-items-center bg-light">
+      <div class="col-md-6 col-xl-4">
+   
+   <h2>Here's Your Pet</h2>
+   
+    <p>Name: <%= pet.petName %> </p>
+   <p>
+      Breed: <%= pet.breed %>
+   </p>
+   <p>
+      Color: <%= pet.color%>
+   </p>
+   <p>
+    Age:   <%= pet.age %></p>
+   
+    <p><a href="<%= pet._id %>/shots/new">Track Insulin</a></p>
+   <p><a href="<%= pet._id %>/shots/show">View History</a></p>
+   </div>
+   </div>
+</section>
+

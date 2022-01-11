@@ -1,0 +1,28 @@
+<section class="container">
+    <div class="row app-height">
+        <div class="col-md-6 offset-md-4 col-xl-4 offset-xl-4 h-100">
+            <div class="text-center my-3">
+                <h3>Edit Your Pet Profile</h3>
+            </div>
+            <form action="/pet/<%= pet.id %>?_method=PUT " method="POST">
+                <fieldset class="form-group">
+                    <label for="petName">Your Pet's Name:</label>
+                    <input class="form-control" type="text" name="petName" id="petName" value="<%= pet.petName %> ">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="breed">Breed:</label>
+                    <input class="form-control" type="text" name="breed" id="breed" value="<%= pet.breed %>">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="color">Color:</label>
+                    <input class="form-control" type="text" name="color" id="color" value="<%= pet.color%>">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="age">Age:</label>
+                    <input class="form-control" type="text" name="age" id="age" value="<%= pet.age %>">
+                </fieldset>
+                <input class="btn btn-primary btn-md btn-block" type="submit" value="Edit Pet Profile">
+            </form>
+        </div>
+    </div>
+</section>

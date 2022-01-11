@@ -4,74 +4,47 @@ const User = require('../models/user')
 const Pet = require('../models/pet')
 
 // INDEX
-// router.get('/', (req, res) => {
-//     res.render('index')
-// })
-
-//find onwer by id (whos logidin)
-// create pet req.body - association I have will create pet
-
 router.get('/', async (req, res) => {
-    const user = req.session.user
-    console.log(user)
-    const pets = await Pet.find({}).populate('owner')
-    res.render('pets/index', {pets})
-    // Pet.find({})
-    //     .populate('owner')
-    //     .then(pet => res.json(pet))
-    //     .catch(next)
+    const pets = await Pet.find({})
+    res.render('pets/index', { pets })
 });
 
 // GET: first get form to create pet
-router.get('/new', (req, res) => {
+router.get('/new', async (req, res) => {
     res.render('pets/new')
 })
 
 // SHOW: Get a specific item by it's ID
 router.get('/:id', async (req, res) => {
     const pet = await Pet.findById(req.params.id)
-        .populate('owner')
+        .populate('shots')
         res.render('pets/show', {pet})
 })
 // POST: To create a new data
 router.post('/', async (req, res) => {
-    let currentUser = await User.findById(req.session.loggedIn)
-    if (req.body.kind.cat === 'on') {
-        req.body.kind.cat = true
-    } else if (req.body.kind.dog === 'on') {
-        req.body.kind.dog = true
-    } else {
-        req.body.kind.cat = false
-    }
-    console.log(req.body.kind)
-    console.log(currentUser)
-    res.send(req.body)
-    // const newPet = new Pet(req.body)
-    // await newPet.save()
-    // res.redirect(`/pet/${newPet._id}`)
+    const newPet = await new Pet(req.body)
+    // currentUser.pets.push(newPet)
+    await newPet.save()
+    // await currentUser.save()
+    res.redirect(`/pet/${newPet._id}`)
 })
 
 // GET ~> /pet/: id / edit
-router.get('/:id/edit', (req, res, next) => {
-    Pet.findById(req.params.id)
-        .then(pet => res.json(pet))
-        .catch(next)
+router.get('/:id/edit', async (req, res) => {
+    const pet = await Pet.findById(req.params.id)
+    res.render('pets/edit', { pet })
 })
 
 // PUT ~> /pet/: id
-router.put('/:id', (req, res, next) => {
-    Pet.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        .then(pet => res.json(pet))
-        .catch(next)
+router.put('/:id', async (req, res, next) => {
+    const editPet = await Pet.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    res.redirect(`/pet/${editPet._id}`)
 })
 
 // DELETE ~> /pet/: id
-router.delete('/:id', (req, res, next) => {
-    Pet.findByIdAndDelete(req.params.id)
-        .then(() => res.json({
-            message: "DELETED WORKED"
-        }))
-        .catch(next)
+router.delete('/:id', async (req, res) => {
+    const deletedPet = await Pet.findByIdAndDelete(req.params.id)
+    res.redirect('/pet')
 })
 
 //--------><--------//

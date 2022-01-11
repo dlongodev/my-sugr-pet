@@ -1,0 +1,58 @@
+<section class="container">
+    <div class="row bg-light align-items-center justify-content-center mb-3 p-3">
+        <div class="col col-sm-12 col-md-8 col-lg-6">
+            <div class="text-center my-3">
+                <h3>
+                    <%= pet.petName %>
+                </h3>
+                <h5>New Insulin Injection Entry</h5>
+            </div>
+            <form action="/pet/<%= pet.id %>/shots" method="POST">
+                <fieldset class="form-group">
+                    <label for="date">Date:</label>
+                    <input class="form-control" type="date" name="date" id="date">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="time">time:</label>
+                    <input class="form-control" type="time" name="time" id="time">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="dosage">dosage:</label>
+                    <input class="form-control" type="number" name="dosage" id="dosage">
+                </fieldset>
+                <fieldset class="form-group">
+                    <p>Injection Location</p>
+                    <div class="col-sm-12">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="injectionSite" id="front-left"
+                                value="front-left">
+                            <label for="front-left">Front-Left</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="injectionSite" id="front-right"
+                                value="front-right">
+                            <label for="front-right">Front-Right</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="injectionSite" id="back-left"
+                                value="back-left">
+                            <label for="back-left">Back-Left</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="injectionSite" id="back-right"
+                                value="back-right">
+                            <label for="back-right">Back-Right</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <input class="btn btn-primary btn-md btn-block" type="submit" value="Done">
+            </form>
+        </div>
+    </div>
+</section>
