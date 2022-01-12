@@ -1,3 +1,4 @@
+const { Schema } = require('mongoose')
 const mongoose = require('../db/connection')
 const Shot = require('./shots')
 
@@ -7,6 +8,10 @@ const PetSchema = new mongoose.Schema({
     breed: String,
     color: String,
     age: Number,
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
     shots: [
         {
             type: mongoose.Schema.Types.ObjectId,

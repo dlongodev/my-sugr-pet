@@ -1,12 +1,10 @@
 const mongoose = require('./connection')
 const express = require('express')
-const bcrypt = require('bcrypt')
 const User = require('../models/user')
 const Pet = require('../models/pet')
 const Shot = require('../models/shots')
 const shotSeeds = require('../db/shotSeeds.json')
 const petSeeds = require('../db/petSeeds.json')
-const salt = bcrypt.genSaltSync(10)
 
 
 User.deleteMany({})
@@ -20,8 +18,8 @@ User.deleteMany({})
         return Shot.deleteMany({})
     })
     .then(() => {
-        const hashedPassword = bcrypt.hashSync('123', salt)
-        return User.create({ name: 'Joe', email: 'fake@email.com', password: hashedPassword})
+        const user = new User({ email: 'fake@email.com', username: 'Joe' })
+        return User.register(user, '123')
             .then(user => {
                 return petSeeds.map((pet) => ({ ...pet, owner: user._id }))
             })
@@ -29,7 +27,7 @@ User.deleteMany({})
                 return Pet.insertMany(pet)
             })
             .then(pet => {
-                return shotSeeds.map((shots) => ({ ...shots, owner: pet[0]._id }))
+                return shotSeeds.map((shots) => ({ ...pet, shots: pet[0]._id }))
             }).then(shots => {
                 return Shot.insertMany(shots)
             })

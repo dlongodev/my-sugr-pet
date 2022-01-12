@@ -4,9 +4,10 @@ const User = require('../models/user')
 const Pet = require('../models/pet')
 const { isLoggedIn } = require('../middleware')
 
-// INDEX
+// PETS INDEX
 router.get('/', isLoggedIn, async (req, res) => {
-    const pets = await Pet.find({})
+    const pets = await Pet.find({ owner: req.user._id }).populate('owner')
+    console.log("pets ~>", pets, "user session ~>", req.user._id)
     res.render('pets/index', { pets })
 });
 
@@ -18,13 +19,13 @@ router.get('/new', isLoggedIn, async (req, res) => {
 // SHOW: Get a specific item by it's ID
 router.get('/:id', isLoggedIn, async (req, res) => {
     const pet = await Pet.findById(req.params.id)
-        .populate('shots')
+        .populate('shots').populate('owner')
         res.render('pets/show', {pet})
 })
 // POST: To create a new data
 router.post('/', isLoggedIn, async (req, res) => {
     const newPet = await new Pet(req.body)
-    // currentUser.pets.push(newPet)
+    newPet.owner = req.user._id
     await newPet.save()
     // await currentUser.save()
     res.redirect(`/pet/${newPet._id}`)

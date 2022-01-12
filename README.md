@@ -68,7 +68,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -132,23 +131,10 @@ This is an example of how to list things you need to use the software and how to
 3. Create `.env` file
    ```js
    PORT='3000'
-   MONGODB_URI='mongodb://localhost:27017/mypet'
-   SESSION_SECRET='create-your-session-secret'
+   MONGODB_URI='mongodb://localhost:27017/mysugrpet'
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- ROADMAP -->
@@ -220,9 +206,11 @@ Project Link: [https://github.com/dlongodev/my-sugr-pet](https://github.com/dlon
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* [General Assembly 9/28 SEI-Flex](https://generalassemb.ly/)
+* Billie Heidelberg - SEI Lead
+* Matt Keane - Instructional Associate
+* Paresh Sharma - Instructional Associate
+* [Colt Steele - YelpCamp Lessons](https://www.udemy.com/course/the-web-developer-bootcamp/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

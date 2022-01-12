@@ -1,8 +1,6 @@
 [
     {
-        "kind": {
-            "dog": true
-        },
+        "kind": "dog",
         "petName": "Cielo",
         "breed": "maltese",
         "color": "white",
