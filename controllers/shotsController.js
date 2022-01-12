@@ -41,11 +41,12 @@ router.post('/:id/shots', async (req, res) => {
 // })
 
 // DELETE ~> /shot/: id
-router.delete('/:petId/shots/:id/', async (req, res) => {
-    const pet = await Pet.findById(req.params.petId)
-    const deletedShot = await Shot.findByIdAndDelete(req.params.id)
+router.delete('/:id/shots/:shotId/', async (req, res) => {
+    const { id, shotId } = req.params
+    await Pet.findByIdAndUpdate(id, { $pull: { shots: shotId } })
+    const deletedShot = await Shot.findByIdAndDelete(shotId)
     req.flash('success', 'Successfully deleted an injection entry!')
-    res.redirect(`/pet/${pet._id}/shots/show`)
+    res.redirect(`/pet/${id}/shots/show`)
 })
 
 //--------><--------//
