@@ -211,6 +211,7 @@ Project Link: [https://github.com/dlongodev/my-sugr-pet](https://github.com/dlon
 * Matt Keane - Instructional Associate
 * Paresh Sharma - Instructional Associate
 * [Colt Steele - YelpCamp Lessons](https://www.udemy.com/course/the-web-developer-bootcamp/)
+* [Pet icon by catalyststuff - freepik](https://www.freepik.com/vectors/background)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

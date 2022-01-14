@@ -69,6 +69,10 @@ a:hover {
   }
 }
 
+.app-main-base {
+  background: #809cef;
+}
+
 .content {
   z-index: 1;
   display: -webkit-box;
@@ -130,7 +134,7 @@ a:hover {
   display: block;
   background-color: #809cef;
   min-width: 12em;
-  padding: 1em 0;
+  padding: 1em 2rem;
   border-radius: 1.5em;
   text-align: center;
   font-weight: 700;
@@ -141,6 +145,7 @@ a:hover {
   z-index: 2;
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
+  border: none;
 }
 
 .btn-base:hover {
@@ -156,11 +161,6 @@ a:hover {
           box-shadow: 0rem 0.4rem 0.3rem -1rem #647cc4;
 }
 
-.shadow {
-  -webkit-box-shadow: 0rem 1.5rem 0.9rem -1.5rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
-  box-shadow: 0rem 1.5rem 0.9rem -1.5rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
-}
-
 .btn-white {
   color: #2b3450;
   background-color: white;
@@ -169,6 +169,11 @@ a:hover {
 .btn-white:hover {
   color: #2b3450;
   background-color: #cdd6f4;
+}
+
+.shadow {
+  -webkit-box-shadow: 0rem 1.5rem 0.9rem -1.5rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
+  box-shadow: 0rem 1.5rem 0.9rem -1.5rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
 }
 
 footer {
@@ -182,6 +187,10 @@ footer {
   border-radius: 0 0.5rem 0.5rem 0;
 }
 
+input[date] {
+  color: #cdd6f4;
+}
+
 .input-group-text {
   background-color: white;
   border: none;
@@ -189,5 +198,63 @@ footer {
   color: #809cef;
   font-weight: 700;
   padding-left: 1rem;
+}
+
+.col img {
+  height: 100px;
+  width: 100%;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: white;
+  color: #809cef;
+  font-size: 5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.col label {
+  overflow: hidden;
+  position: relative;
+}
+
+.imgbgchk:checked + label > .tick_container {
+  opacity: 1;
+}
+
+/* aNIMATION */
+.imgbgchk:checked + label > img {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+  opacity: 0.3;
+  border-radius: 0.5rem;
+}
+
+.tick_container {
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+  text-align: center;
+}
+
+.tick {
+  background-color: #2b3450;
+  color: white;
+  font-size: 16px;
+  padding: 6px 12px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
 }
 /*# sourceMappingURL=style.css.map */
