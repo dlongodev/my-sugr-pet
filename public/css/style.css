@@ -1,8 +1,193 @@
-.app-height {
-  height: 80vh;
+.vh-100 {
+  height: 100vh;
 }
 
-.my-card-width {
+.vh-90 {
+  height: 90vh;
+}
+
+.txt-primary {
+  color: #809cef;
+}
+
+.txt-light {
+  color: #cdd6f4;
+}
+
+.txt-dark {
+  color: #2b3450;
+}
+
+.txt-medium {
+  color: #647cc4;
+}
+
+a:hover {
+  color: #647cc4;
+}
+
+.container {
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    max-width: 700px;
+    -webkit-box-shadow: 0rem 0rem 1rem -1rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
+    box-shadow: 0rem 0rem 2rem -1rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
+  }
+}
+
+.app-main {
+  background: no-repeat url(../img/waves-01.svg);
+  background-size: cover;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .app-main {
+    background-position-y: -25vh;
+  }
+}
+
+.content {
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content h1 {
+  margin-bottom: 0;
+}
+
+.content h5 {
+  color: #cdd6f4;
+  letter-spacing: 0.1rem;
+}
+
+.content a {
+  text-decoration: none;
+}
+
+.content-mt {
+  margin-top: 10vh;
+}
+
+@media only screen and (min-width: 600px) {
+  .content-mt {
+    margin-top: 15%;
+    background-position-y: -10rem;
+  }
+}
+
+.logo {
   width: 10rem;
+  height: 10rem;
+  border-radius: 1rem;
+  background-color: white;
+  margin-bottom: 1rem;
+}
+
+.btn-group {
+  margin-top: 20vh;
+  display: inline-block;
+  z-index: 1;
+  text-align: center;
+}
+
+.btn-base {
+  color: white;
+  display: block;
+  background-color: #809cef;
+  min-width: 12em;
+  padding: 1em 0;
+  border-radius: 1.5em;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  margin-bottom: 2.5rem;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  z-index: 2;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+.btn-base:hover {
+  color: white;
+  background-color: #647cc4;
+  text-decoration: none;
+}
+
+.btn-base:active {
+  -webkit-transform: translateY(0.2rem);
+          transform: translateY(0.2rem);
+  -webkit-box-shadow: 0rem 0.4rem 0.3rem -1rem #647cc4;
+          box-shadow: 0rem 0.4rem 0.3rem -1rem #647cc4;
+}
+
+.shadow {
+  -webkit-box-shadow: 0rem 1.5rem 0.9rem -1.5rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
+  box-shadow: 0rem 1.5rem 0.9rem -1.5rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
+}
+
+.btn-white {
+  color: #2b3450;
+  background-color: white;
+}
+
+.btn-white:hover {
+  color: #2b3450;
+  background-color: #cdd6f4;
+}
+
+footer {
+  color: #cdd6f4;
+  z-index: 0;
+}
+
+.form-control {
+  border: none;
+  height: 3rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.input-group-text {
+  background-color: white;
+  border: none;
+  border-radius: 0.5rem 0 0 0.5rem;
+  color: #809cef;
+  font-weight: 700;
+  padding-left: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

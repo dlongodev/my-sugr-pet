@@ -1,20 +1,22 @@
-<section class="container">
-    <div class="row app-height">
-        <div class="col-md-6 offset-md-4 col-xl-4 offset-xl-4 h-100">
-            <div class="text-center my-3">
-                <h2>Login</h2>
+<main class="app-main mb-5">
+    <div class="content content-mt>
+        <div class=" m-5">
+        <h2 class="text-white">Login</h2>
             </div>
             <form action="/login" method="POST">
-                <fieldset class="form-group">
-                    <label for="username">Username:</label>
-                    <input class="form-control" type="text" name="username" id="username">
+                <fieldset class="form-group d-flex mb-4">
+                    <span class="input-group-text" id="username">Username:</span>
+                    <input class="form-control" type="text" name="username" id="username" aria-describedby="Username">
                 </fieldset>
-                <fieldset class="form-group">
-                    <label for="password">Password:</label>
-                    <input class="form-control" type="password" name="password" id="password">
+                <fieldset class="form-group d-flex mb-4">
+                    <span class="input-group-text" id="username">Password:</span>
+                    <input class="form-control" type="password" name="password" id="password" aria-describedby="Password">
                     </fieldset>
-                <input class="btn btn-primary btn-md btn-block" type="submit" value="Login">
+                    <div class="txt-light  text-center">
+                        <p>Need to Register? <a class="txt-light" href="/register">Click Here</a> </p>
+                    </div>
+                    <div class="btn-group mb-2 d-flex justify-content-center"><input class="btn btn-base shadow" type="submit"
+                            value="Login"></div>
                 </form>
         </div>
-        </div>
-        </section>
+</main>

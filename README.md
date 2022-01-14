@@ -130,7 +130,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 3. Create `.env` file
    ```js
-   PORT='3000'
+   PORT='3300'
    MONGODB_URI='mongodb://localhost:27017/mysugrpet'
    ```
 

@@ -1,24 +1,26 @@
-<section class="container">
-    <div class="row app-height">
-        <div class="col-md-6 offset-md-4 col-xl-4 offset-xl-4 h-100">
-            <div class="text-center my-3">
-                <h2>Register</h2>
-            </div>
-            <form action="/register" method="POST">
-                <fieldset class="form-group">
-                    <label for="username">Username:</label>
-                    <input class="form-control" type="text" name="username" id="username">
-                </fieldset>
-                <fieldset class="form-group">
-                    <label for="email">Email:</label>
-                    <input class="form-control" type="text" name="email" id="email">
-                </fieldset>
-                <fieldset class="form-group">
-                    <label for="password">Password:</label>
-                    <input class="form-control" type="password" name="password" id="password">
-                </fieldset>
-                <input class="btn btn-primary btn-md btn-block" type="submit" value="Register">
-            </form>
+<main class="app-main mb-5">
+    <div class="content content-mt">
+        <div class="m-3">
+            <h2 class="text-white">Register</h2>
         </div>
+        <form action="/register" method="POST">
+            <fieldset class="form-group d-flex mb-4">
+                <span class="input-group-text" id="username">Username:</span>
+                <input class="form-control" type="text" name="username" id="username" aria-describedby="Username">
+            </fieldset>
+            <fieldset class="form-group d-flex mb-4">
+                <span class="input-group-text" id="username">Email:</span>
+                <input class="form-control" type="text" name="email" id="email" aria-describedby="email">
+                </fieldset>
+            <fieldset class="form-group d-flex mb-4">
+                <span class="input-group-text" id="username">Password:</span>
+                <input class="form-control" type="password" name="password" id="password" aria-describedby="Password">
+            </fieldset>
+            <div class="txt-light  text-center">
+                <p>Need to Login? <a class="txt-light" href="/login">Click Here</a> </p>
+            </div>
+            <div class="btn-group mb-2 d-flex justify-content-center"><input class="btn btn-base shadow" type="submit"
+                    value="Register"></div>
+            </form>
     </div>
-</section>
+</main>
