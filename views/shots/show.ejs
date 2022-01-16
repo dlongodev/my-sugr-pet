@@ -19,7 +19,7 @@
                         <img src="/img/shot_<%= shot.injectionSite %>.svg" width="100px" alt="icon for injection on <%= shot.injectionSite %> ">
                     </div>
                     <p>
-                        <%= shot.date %>
+                        <%= shot.date.toLocaleString().split(',')[0] %>
                     </p>
                     <p>
                         <%= shot.time %>

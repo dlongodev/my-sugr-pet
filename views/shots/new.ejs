@@ -1,58 +1,50 @@
 <main class="app-main">
-    <div class="content">
-        <div class="m-5">
-            <div class="text-center my-3">
-                <h3>
-                    <%= pet.petName %>
-                </h3>
-                <h5>New Insulin Injection Entry</h5>
-            </div>
-            <form action="/pet/<%= pet.id %>/shots" method="POST">
-                <fieldset class="form-group">
-                    <label for="date">Date:</label>
-                    <input class="form-control" type="date" name="date" id="date">
-                </fieldset>
-                <fieldset class="form-group">
-                    <label for="time">time:</label>
-                    <input class="form-control" type="time" name="time" id="time">
-                </fieldset>
-                <fieldset class="form-group">
-                    <label for="dosage">dosage:</label>
-                    <input class="form-control" type="number" name="dosage" id="dosage">
-                </fieldset>
-                <fieldset class="form-group">
-                    <p>Injection Location</p>
-                    <div class="col-sm-12">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="injectionSite" id="front-left"
-                                value="front-left">
-                            <label for="front-left">Front-Left</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="injectionSite" id="front-right"
-                                value="front-right">
-                            <label for="front-right">Front-Right</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="injectionSite" id="back-left"
-                                value="back-left">
-                            <label for="back-left">Back-Left</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="injectionSite" id="back-right"
-                                value="back-right">
-                            <label for="back-right">Back-Right</label>
-                        </div>
-                    </div>
-                </fieldset>
-                <input class="btn btn-primary btn-md btn-block" type="submit" value="Done">
-            </form>
+    <div class="col-sm-12 col-md-8 content mt-2">
+        <div class="text-center col-sm-12 m-3">
+            <h1 class="text-white">
+                <%= pet.petName %>
+                    </h3>
+                    <h5>New Insulin Injection Entry</h5>
         </div>
+        <form action="/pet/<%= pet.id %>/shots" method="POST">
+            <fieldset class="form-group d-flex mb-4">
+                <span class="input-group-text" id="date" for="date">Date:</span>
+                <input class="form-control" type="date" name="date" id="date">
+            </fieldset>
+            <fieldset class="form-group d-flex mb-4">
+                <span class="input-group-text" id="time" for="time">Time:</span>
+                <input class="form-control" type="time" name="time" id="time">
+            </fieldset>
+            <fieldset class="form-group d-flex mb-4">
+                <span class="input-group-text" id="dosage" for="dosage">Dosage:</span>
+                <input class="form-control" type="number" name="dosage" id="dosage" min="1" max="7">
+            </fieldset>
+            <div class="shot-form bg-white shadow mb-4">
+                <p class="input-group-text justify-content-center mb-3">Injection Location</p>
+                <fieldset class="shot-grid">
+                    <label class="text-right" data-bs-toggle="tooltip" data-bs-placement="top" title="2022-01-11 at 9:34pm"
+                        for="front-left">
+                        <i class="far fa-calendar-alt"></i> Front-Left</label>
+            
+                    <div><input class="form-check-input" type="radio" name="injectionSite" id="front-left" value="front-left"></div>
+            
+                    <div><input class="form-check-input" type="radio" name="injectionSite" id="front-right" value="front-right">
+                    </div>
+                    <label class="text-left" data-bs-toggle="tooltip" data-bs-placement="top" title="2022-01-11 at 9:34pm"
+                        for="front-right">Front-Right <i class="far fa-calendar-alt"></i></label>
+                    <label class="text-right" data-bs-toggle="tooltip" data-bs-placement="top" title="2022-01-11 at 9:34pm"
+                        for="back-left"><i class="far fa-calendar-alt"></i> Back-Left</label>
+                    <div><input class="form-check-input" type="radio" name="injectionSite" id="back-left" value="back-left"></div>
+                    
+                    
+                    <div><input class="form-check-input" type="radio" name="injectionSite" id="back-right" value="back-right"></div>
+                    <label class="text-left" data-bs-toggle="tooltip" data-bs-placement="top" title="2022-01-11 at 9:34pm"
+                        for="back-right">Back-Right <i class="far fa-calendar-alt"></i></label>
+                </fieldset>
+            </div>
+            <div class="col-sm-12 d-flex justify-content-center"><input class="btn btn-base shadow d-flex" type="submit"
+                    value="Done"></div>
+            </form>
+            </div>
     </div>
 </main>

@@ -1,10 +1,10 @@
 const mongoose = require('../db/connection')
 
 const ShotSchema = new mongoose.Schema({
-    date: String,
+    date: Date,
     time: String,
-    dosage: Number,
-    injectionSite: String
+    dosage: { type: Number, min: 1, max: 7 },
+    injectionSite: { type: String, required: true }
 })
 
 const Shot = mongoose.model('Shot', ShotSchema)

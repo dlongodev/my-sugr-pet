@@ -1,213 +1,317 @@
 $base-color: hsl(225, 78%, 72%);
 $base-color-dark: hsl(225, 30%, 24%);
-$base-color-light: hsl(225, 65%, 88%);
+$base-color-light: #cdd6f4;
 $base-color-medium: hsl(225, 45%, 58%);
-
+html {
+  height: 100%;
+}
+body {
+  color: $base-color-dark;
+}
 .vh-100 {
-    height: 100vh;
+  height: 100vh;
 }
 
 .vh-90 {
-    height: 90vh;
+  height: 90vh;
 }
 .txt-primary {
-    color: $base-color;
+  color: $base-color;
 }
 .txt-light {
-    color: $base-color-light
+  color: $base-color-light;
 }
 .txt-dark {
-    color: $base-color-dark;
+  color: $base-color-dark;
 }
 .txt-medium {
-    color: $base-color-medium
+  color: $base-color-medium;
 }
 a:hover {
-    color: $base-color-medium;
+  color: $base-color-medium;
+}
+.h6 {
+  color: $base-color-light;
 }
 
-.container{
-    padding: 0;
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.container {
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
-    @media only screen and (min-width: 600px)  {
-        max-width: 700px;
-        -webkit-box-shadow: 0rem 0rem 1rem -1rem $base-color-medium, 0rem 0.7rem 2rem -0.2rem rgba($base-color-medium,0.4); 
-        box-shadow: 0rem 0rem 2rem -1rem $base-color-medium, 0rem 0.7rem 2rem -0.2rem rgba($base-color-medium,0.4);
-    }
+  @media only screen and (min-width: 600px) {
+    max-width: 700px;
+    -webkit-box-shadow: 0rem 0rem 1rem -1rem $base-color-medium,
+      0rem 0.7rem 2rem -0.2rem rgba($base-color-medium, 0.4);
+    box-shadow: 0rem 0rem 2rem -1rem $base-color-medium,
+      0rem 0.7rem 2rem -0.2rem rgba($base-color-medium, 0.4);
+  }
 }
 .app-main {
-    background: no-repeat url(../img/waves-01.svg);
-    background-size: cover;
-    // background-position-y: -10vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background: no-repeat url(../img/waves-01.svg);
+  background-size: cover;
+  background-position-y: -5vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    @media only screen and (min-width: 600px)  {
-       background-position-y: -25vh;
-    }
+  @media only screen and (min-width: 600px) {
+    background-position-y: -30vh;
+  }
 }
-.app-main-base {
-    background: $base-color;
+.bg-base {
+  background: $base-color;
 }
 
 .content {
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    h1 {
-        margin-bottom: 0;
-    }
+  h1 {
+    margin-bottom: 0;
+  }
 
-    h5{
-        color: $base-color-light;
-        letter-spacing: 0.1rem;
-    }
-    a {
-        text-decoration: none;
+  h5 {
+    color: $base-color-light;
+    letter-spacing: 0.1rem;
+  }
+  a {
+    text-decoration: none;
+  }
 }
-}
-.content-mt{
-    margin-top: 10vh;
+.content-mt {
+  margin-top: 10vh;
 
-    @media only screen and (min-width: 600px)  {
-        margin-top: 15%;
-        background-position-y: -10rem;
-    }
-}
-
-.logo{
-    width: 10rem;
-    height: 10rem;
-    border-radius: 1rem;
-    background-color: white;
-    margin-bottom: 1rem;
+  @media only screen and (min-width: 600px) {
+    margin-top: 15%;
+    background-position-y: -10rem;
+  }
 }
 
-.btn-group{
-    margin-top: 20vh;
-    display: inline-block;
-    z-index: 1;
-    text-align: center;
+.logo {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 1rem;
+  background-color: white;
+  margin-bottom: 1rem;
+}
+
+.my-btn-group {
+  margin-top: 20vh;
+  display: inline-block;
+  z-index: 1;
+  text-align: center;
 }
 .btn-base {
-        color: white;
-        display: block;
-        background-color: $base-color;
-        min-width: 12em;
-        padding: 1em 2rem;
-        border-radius: 1.5em;
-        text-align: center;
-        font-weight: 700;
-        letter-spacing: 0.1rem;
-        margin-bottom: 2.5rem;
-        transition: 0.2s all;
-        z-index: 2;
-        transition: all ease 0.3s;
-        border: none;
+  color: white;
+  display: block;
+  background-color: $base-color;
+  max-width: 12em;
+  padding: 1em 2em;
+  border-radius: 1em;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 2.5rem;
+  transition: 0.2s all;
+  z-index: 2;
+  transition: all ease 0.3s;
+  border: none;
 
-        &:hover {
-        color: white;
-        background-color: $base-color-medium;
-        text-decoration: none;
-        }
-        &:active {
-            transform: translateY(0.2rem);
-            box-shadow: 0rem 0.4rem 0.3rem -1rem $base-color-medium
-        }
-    }
-    
-    .btn-white {
-        color: $base-color-dark;
-        background-color: white;
-        
-        &:hover {
-            color: $base-color-dark;
-            background-color: $base-color-light;
-        }
-    }
+  &:hover {
+    color: white;
+    background-color: $base-color-medium;
+    text-decoration: none;
+  }
+  &:active {
+    transform: translateY(0.2rem);
+    box-shadow: 0rem 0.4rem 0.3rem -1rem $base-color-medium;
+  }
+}
 
+.btn-white {
+  color: $base-color-dark;
+  background-color: white;
+
+  &:hover {
+    color: $base-color-dark;
+    background-color: $base-color-light;
+  }
+}
+.btn-outline-light {
+  color: $base-color-light;
+  border-color: $base-color-light;
+  border-radius: 0.6rem;
+  &:hover {
+    background-color: $base-color-light;
+    color: $base-color-medium;
+    border-color: $base-color-medium;
+  }
+}
 .shadow {
-    -webkit-box-shadow: 0rem 1.5rem 0.9rem -1.5rem $base-color-medium, 0rem 0.7rem 2rem -0.2rem rgba($base-color-medium,0.4); 
-    box-shadow: 0rem 1.5rem 0.9rem -1.5rem $base-color-medium, 0rem 0.7rem 2rem -0.2rem rgba($base-color-medium,0.4);
+  -webkit-box-shadow: 0rem 1.5rem 0.9rem -1.5rem $base-color-medium,
+    0rem 0.7rem 2rem -0.2rem rgba($base-color-medium, 0.4);
+  box-shadow: 0rem 1.5rem 0.9rem -1.5rem $base-color-medium,
+    0rem 0.7rem 2rem -0.2rem rgba($base-color-medium, 0.4);
 }
 
 footer {
-    color: $base-color-light;
-    z-index: 0;
+  color: $base-color-light;
+  z-index: 0;
 }
 
-// form fields
+// FORM FIELDS
 
 .form-control {
-    border: none;
-    height: 3rem;
-    border-radius: 0 0.5rem 0.5rem 0;
+  border: none;
+  height: 3rem;
+  border-radius: 0 0.5rem 0.5rem 0;
 }
 
 input[date] {
-        color: $base-color-light;
-    }
+  color: $base-color-light;
+}
 
 .input-group-text {
-    background-color: white;
-    border: none;
-    border-radius: 0.5rem 0 0 0.5rem;
-    color: $base-color;
-    font-weight: 700;
-    padding-left: 1rem;
+  background-color: white;
+  border: none;
+  border-radius: 0.5rem 0 0 0.5rem;
+  color: $base-color;
+  font-weight: 700;
+  padding-left: 1rem;
 }
 
-.col img{
-    height:100px;
-    width: 100%;
-    cursor: pointer;
-    transition: transform 1s;
-    object-fit: cover;
-    background-color: white;
-    color: $base-color;
-    font-size: 5rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+.col img {
+  height: 100px;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 1s;
+  object-fit: cover;
+  background-color: white;
+  color: $base-color;
+  font-size: 5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
-.col label{
-    overflow: hidden;
-    position: relative;
+.col label {
+  overflow: hidden;
+  position: relative;
 }
-.imgbgchk:checked + label>.tick_container{
-    opacity: 1;
+.imgbgchk:checked + label > .tick_container {
+  opacity: 1;
 }
-/* aNIMATION */
-.imgbgchk:checked + label>img{
-    transform: scale(1.25);
-    opacity: 0.3;
-    border-radius: 0.5rem;
+// check animation
+.imgbgchk:checked + label > img {
+  transform: scale(1.25);
+  opacity: 0.3;
+  border-radius: 0.5rem;
 }
 .tick_container {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    cursor: pointer;
-    text-align: center;
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+  text-align: center;
 }
 .tick {
-    background-color: $base-color-dark;
-    color: white;
-    font-size: 16px;
-    padding: 6px 12px;
-    height: 40px;
-    width: 40px;
-    border-radius: 100%;
+  background-color: $base-color-medium;
+  color: white;
+  font-size: 1rem;
+  padding: 6px 12px;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 100%;
+}
+
+.shot-history {
+  color: $base-color-medium;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.shot-form {
+  background: no-repeat url(../img/dog-shot-position.png);
+  width: 100%;
+  background-size: cover;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+
+  label{
+      background-color: rgba($base-color-light, 0.2);
+      padding: 1rem;
+      border-radius: 0.5rem;
+  }
+  i{
+      color: $base-color;
+  }
+}
+.shot-grid {
+    height: 22rem;
+    width: 23rem;
+    display: grid;
+    place-content: center;
+    grid-template-columns: 1fr 2rem 4rem 1fr;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+    
+  }
+.left-history {
+    grid-column: 1 / span 2;
+}
+.right-history {
+    grid-column: 3 / span 2;
+}
+
+input[type="radio"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: white;
+  /* Not removed via appearance */
+  margin: 0;
+  position: inherit;
+  font: inherit;
+  color: $base-color;
+  width: 2em;
+  height: 2em;
+  border: 0.3em solid $base-color;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em $base-color;
+  /* Windows High Contrast Mode */
+  background-color: $base-color;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="radio"]:focus {
+  outline: 0.15em solid $base-color;
+  outline-offset: 0.15em;
 }

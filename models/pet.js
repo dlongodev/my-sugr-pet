@@ -7,7 +7,7 @@ const PetSchema = new mongoose.Schema({
     kind: String,
     breed: String,
     color: String,
-    age: Number,
+    age: Date,
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
