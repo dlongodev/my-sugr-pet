@@ -1,6 +1,9 @@
 <main class="app-main mb-5">
+   <div class="d-flex justify-content-between mt-3 px-2 w-100">
+      <div><a href="/pet" class="btn btn-sm btn-outline-light"><i class="fas fa-chevron-circle-left"></i></a></div>
+      <div><a class="btn btn-sm btn-outline-light" href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a></div>
+   </div>
    <div class="col-sm 12 text-left mt-3">
-      <div><a href="/pet" class="btn btn-sm btn-outline-light">All Pets</a></div>
    </div>
       <div class="col-sm-12 content">
          <h1 class="text-white mt-3">
@@ -9,7 +12,7 @@
          <p class="h6 text-center mb-5">
             <%= pet.breed %>
                <%= pet.kind %>, <%= petAge %> years old <br>
-                     Born on <%= pet.age.toLocaleString().split(',')[0] %>
+                     Born on <%= pet.age.toISOString().split('T')[0] %>
          </p>
          <div class="col-sm-7 bg-white shadow rounded mx-auto d-block">
             <div class="p-3">

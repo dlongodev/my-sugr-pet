@@ -25,13 +25,12 @@ router.get('/:id', isLoggedIn, async (req, res) => {
     let petAge = Math.floor((today - petDOB) / 31556952000)
     res.render('pets/show', { pet, petAge })
 })
-// POST: To create a new data
+// POST: To create a new pet
 router.post('/', isLoggedIn, async (req, res) => {
     const newPet = await new Pet(req.body)
     newPet.owner = req.user._id
     await newPet.save()
-    await currentUser.save()
-    res.redirect(`/pet/${newPet._id}`)
+    res.redirect(`/pet/${newPet.id}`)
 })
 
 // GET: to get form to edit pet info ~> /pet/:id/edit

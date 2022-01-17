@@ -6,12 +6,20 @@ body {
   color: #2b3450;
 }
 
+.containter {
+  height: 100%;
+}
+
 .vh-100 {
   height: 100vh;
 }
 
-.vh-90 {
-  height: 90vh;
+.mt-10vh {
+  margin-top: 10vh;
+}
+
+.mt-20vh {
+  margin-top: 20vh;
 }
 
 .txt-primary {
@@ -30,6 +38,10 @@ body {
   color: #647cc4;
 }
 
+.bg-base {
+  background: #809cef;
+}
+
 a:hover {
   color: #647cc4;
 }
@@ -38,7 +50,18 @@ a:hover {
   color: #cdd6f4;
 }
 
-.container {
+.title {
+  color: #647cc4;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.round-bdr-1 {
+  border-radius: 1rem;
+  font-weight: 700;
+}
+
+.my-container {
   padding: 0;
   margin: 0 auto;
   width: 100%;
@@ -52,7 +75,7 @@ a:hover {
 }
 
 @media only screen and (min-width: 600px) {
-  .container {
+  .my-container {
     max-width: 700px;
     -webkit-box-shadow: 0rem 0rem 1rem -1rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
     box-shadow: 0rem 0rem 2rem -1rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
@@ -62,7 +85,6 @@ a:hover {
 .app-main {
   background: no-repeat url(../img/waves-01.svg);
   background-size: cover;
-  background-position-y: -5vh;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -78,12 +100,12 @@ a:hover {
 
 @media only screen and (min-width: 600px) {
   .app-main {
-    background-position-y: -30vh;
+    background-position-y: -20vh;
   }
 }
 
-.bg-base {
-  background: #809cef;
+.wave {
+  height: 7rem;
 }
 
 .content {
@@ -133,6 +155,38 @@ a:hover {
   border-radius: 1rem;
   background-color: white;
   margin-bottom: 1rem;
+}
+
+.pet-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  place-content: center;
+  background-color: white;
+  border-radius: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.img-box {
+  width: 12rem;
+  height: 12rem;
+  background-size: cover;
+}
+
+.img-box img {
+  border-radius: 50%;
+  border: 0.4rem solid #cdd6f4;
+}
+
+.shadow {
+  -webkit-box-shadow: 0rem 1.5rem 0.9rem -1.5rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
+  box-shadow: 0rem 1.5rem 0.9rem -1.5rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
 }
 
 .my-btn-group {
@@ -193,17 +247,15 @@ a:hover {
 .btn-outline-light:hover {
   background-color: #cdd6f4;
   color: #647cc4;
-  border-color: #647cc4;
-}
-
-.shadow {
-  -webkit-box-shadow: 0rem 1.5rem 0.9rem -1.5rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
-  box-shadow: 0rem 1.5rem 0.9rem -1.5rem #647cc4, 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
+  border-color: #cdd6f4;
 }
 
 footer {
   color: #cdd6f4;
-  z-index: 0;
+}
+
+footer i {
+  font-size: 1.5rem;
 }
 
 .form-control {
@@ -280,12 +332,6 @@ input[date] {
   height: 2rem;
   width: 2rem;
   border-radius: 100%;
-}
-
-.shot-history {
-  color: #647cc4;
-  font-size: 0.7rem;
-  font-weight: 700;
 }
 
 .shot-form {
@@ -383,5 +429,11 @@ input[type="radio"]:checked::before {
 input[type="radio"]:focus {
   outline: 0.15em solid #809cef;
   outline-offset: 0.15em;
+}
+
+.shot-history {
+  color: #647cc4;
+  font-size: 0.7rem;
+  font-weight: 700;
 }
 /*# sourceMappingURL=style.css.map */

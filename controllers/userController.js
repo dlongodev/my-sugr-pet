@@ -4,11 +4,12 @@ const passport = require('passport');
 const User = require('../models/user')
 // const Pet = require('../models/pet')
 
-// Register ----------------------
+// GET: Form for user to Register -----
 router.get('/register', (req, res) => {
     res.render('users/register')
 })
 
+// POST: create user data
 router.post('/register', async (req, res) => {
     try {
         const { email, username, password } = req.body;
@@ -24,17 +25,18 @@ router.post('/register', async (req, res) => {
     }
 })
 
-// Login ----------------------
+// GET: Login form --------
 router.get('/login', (req, res) => {
     res.render('users/login')
 })
 
+// POST: authenthicate login
 router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), (req, res) => {
     req.flash('success', 'welcome back!');
     res.redirect('/pet');
 })
 
-// Logout ----------------------
+// GET: Passport Logout ---------
 router.get('/logout', (req, res) => {
     req.logOut()
     req.flash('success', 'Logged Out!')

@@ -8,13 +8,20 @@ html {
 body {
   color: $base-color-dark;
 }
+.containter{
+    height: 100%;
+}
 .vh-100 {
   height: 100vh;
 }
 
-.vh-90 {
-  height: 90vh;
+.mt-10vh {
+    margin-top: 10vh
 }
+.mt-20vh {
+    margin-top:20vh
+}
+
 .txt-primary {
   color: $base-color;
 }
@@ -27,14 +34,26 @@ body {
 .txt-medium {
   color: $base-color-medium;
 }
+.bg-base {
+  background: $base-color;
+}
 a:hover {
   color: $base-color-medium;
 }
 .h6 {
   color: $base-color-light;
 }
+.title {
+  color: $base-color-medium;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.round-bdr-1 {
+  border-radius: 1rem;
+  font-weight: 700;
+}
 
-.container {
+.my-container {
   padding: 0;
   margin: 0 auto;
   width: 100%;
@@ -52,18 +71,19 @@ a:hover {
 .app-main {
   background: no-repeat url(../img/waves-01.svg);
   background-size: cover;
-  background-position-y: -5vh;
+//   background-position-y: -5vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   @media only screen and (min-width: 600px) {
-    background-position-y: -30vh;
+    background-position-y: -20vh;
   }
 }
-.bg-base {
-  background: $base-color;
+
+.wave {
+  height: 7rem;
 }
 
 .content {
@@ -102,6 +122,35 @@ a:hover {
   margin-bottom: 1rem;
 }
 
+.pet-card {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  background-color: white;
+  border-radius: 1rem;
+  align-items: center;
+}
+
+// circle image
+.img-box {
+  width: 12rem;
+  height: 12rem;
+  background-size: cover;
+
+  img {
+    border-radius: 50%;
+    border: 0.4rem solid $base-color-light;
+  }
+}
+
+.shadow {
+  -webkit-box-shadow: 0rem 1.5rem 0.9rem -1.5rem $base-color-medium,
+    0rem 0.7rem 2rem -0.2rem rgba($base-color-medium, 0.4);
+  box-shadow: 0rem 1.5rem 0.9rem -1.5rem $base-color-medium,
+    0rem 0.7rem 2rem -0.2rem rgba($base-color-medium, 0.4);
+}
+
+// Buttons --------------
 .my-btn-group {
   margin-top: 20vh;
   display: inline-block;
@@ -151,19 +200,16 @@ a:hover {
   &:hover {
     background-color: $base-color-light;
     color: $base-color-medium;
-    border-color: $base-color-medium;
+    border-color: $base-color-light;
   }
-}
-.shadow {
-  -webkit-box-shadow: 0rem 1.5rem 0.9rem -1.5rem $base-color-medium,
-    0rem 0.7rem 2rem -0.2rem rgba($base-color-medium, 0.4);
-  box-shadow: 0rem 1.5rem 0.9rem -1.5rem $base-color-medium,
-    0rem 0.7rem 2rem -0.2rem rgba($base-color-medium, 0.4);
 }
 
 footer {
   color: $base-color-light;
-  z-index: 0;
+
+  i {
+    font-size: 1.5rem;
+  }
 }
 
 // FORM FIELDS
@@ -233,12 +279,6 @@ input[date] {
   border-radius: 100%;
 }
 
-.shot-history {
-  color: $base-color-medium;
-  font-size: 0.7rem;
-  font-weight: 700;
-}
-
 .shot-form {
   background: no-repeat url(../img/dog-shot-position.png);
   width: 100%;
@@ -246,31 +286,30 @@ input[date] {
   padding: 0.5rem;
   border-radius: 0.5rem;
 
-  label{
-      background-color: rgba($base-color-light, 0.2);
-      padding: 1rem;
-      border-radius: 0.5rem;
+  label {
+    background-color: rgba($base-color-light, 0.2);
+    padding: 1rem;
+    border-radius: 0.5rem;
   }
-  i{
-      color: $base-color;
+  i {
+    color: $base-color;
   }
 }
 .shot-grid {
-    height: 22rem;
-    width: 23rem;
-    display: grid;
-    place-content: center;
-    grid-template-columns: 1fr 2rem 4rem 1fr;
-    justify-items: center;
-    align-content: space-evenly;
-    align-items: center;
-    
-  }
+  height: 22rem;
+  width: 23rem;
+  display: grid;
+  place-content: center;
+  grid-template-columns: 1fr 2rem 4rem 1fr;
+  justify-items: center;
+  align-content: space-evenly;
+  align-items: center;
+}
 .left-history {
-    grid-column: 1 / span 2;
+  grid-column: 1 / span 2;
 }
 .right-history {
-    grid-column: 3 / span 2;
+  grid-column: 3 / span 2;
 }
 
 input[type="radio"] {
@@ -315,3 +354,11 @@ input[type="radio"]:focus {
   outline: 0.15em solid $base-color;
   outline-offset: 0.15em;
 }
+
+.shot-history {
+  color: $base-color-medium;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+// Navigation

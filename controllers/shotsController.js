@@ -7,13 +7,16 @@ const Shot = require('../models/shots')
 // INDEX for shots history
 router.get('/:id/shots/show', async (req, res) => {
     const pet = await Pet.findById(req.params.id).populate('shots')
+    console.log(pet.shots.sort())
     res.render('shots/show', { pet })
 });
 
 // GET: form to create new shot
 router.get('/:id/shots/new', async (req, res) => {
     const pet = await Pet.findById(req.params.id)
-    res.render('shots/new', { pet })
+    const dates = pet.shots.sort(pet.shots.date)
+    console.log(dates)
+    res.render('shots/new', { pet, })
 })
 
 // POST: To create a new shot for based on pet id
@@ -24,13 +27,14 @@ router.post('/:id/shots', async (req, res) => {
     await newShot.save()
     await pet.save()
     req.flash('success', 'You successfully tracked a new insulin injection!')
-    res.redirect(`/pet/${pet._id}`)
+    res.redirect(`/pet/${pet._id}/shots/show`)
 })
 
 // GET: for editing shots ~> (not sure if needed yet)
 // router.get('/:petId/shots/:id/edit', async (req, res) => {
 //     const pet = await Pet.findById(req.params.petId).populate('shots')
-//     res.render('shots/edit', { pet })
+//     const shot = await Shot.findById(req.params.id)
+//     res.render('shots/edit', { pet, shot })
 // })
 
 // PUT: for updating shot data ~> (not sure if needed yet)

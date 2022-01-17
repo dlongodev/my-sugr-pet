@@ -1,5 +1,10 @@
 <main class="app-main">
     <div class="col-sm-12 col-md-8 content mt-2">
+        <div class="d-flex justify-content-between mt-3 px-2 w-100">
+            <div><a href="/pet/<%= pet.id %>" class="btn btn-sm btn-outline-light"><i
+                        class="fas fa-chevron-circle-left"></i></a></div>
+            <div><a class="btn btn-sm btn-outline-light" href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a></div>
+        </div>
         <div class="text-center col-sm-12 m-3">
             <h1 class="text-white">
                 <%= pet.petName %>

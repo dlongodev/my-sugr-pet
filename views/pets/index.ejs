@@ -1,46 +1,49 @@
 <main class="app-main mb-5">
     <div class="col-sm 12 text-right mt-3">
-        <div class="btn-group"><a href="/pet/new" class="btn btn-sm btn-outline-light"><svg
-                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-plus-circle align-middle" viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                    <path
-                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                </svg> Add Pet</a><a class="btn btn-sm btn-outline-light" href="/logout">Logout <svg
-                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-chevron-double-right align-middle" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-                    <path fill-rule="evenodd"
-                        d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
-                </svg></a>
+        <a class="btn btn-sm btn-outline-light" href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a>
         </div>
-    </div>
-    <div class="row text-center bg-light align-items-center justify-content-center">
-        <div class="col-sm-12 w-100">
-            <h2>Manage Your Pets</h2>
+    <div class="col-sm-12 content text-center">
+        <h1 class="text-white mt-5">
+            Manage Your Pets
+        </h1>
+        <a href="/pet/new" class="btn btn-base btn-white shadow mt-3"><i class="fas fa-plus-square"></i>
+            Add
+            Pet</a>
+        <div class="container mb-5">
+            <div class="row justify-content-center">
+    
+                <% pets.forEach(pet=> { %>
+                    <div class="col-sm-5 m-3 p-0">
+                        <div class="pet-card py-3 shadow">
+                            <div class="img-box pt-3">
+                                <a href="/pet/<%= pet._id %> "><img src="/img/dog-photo-test.jpeg" class="img-fluid"
+                                        alt="photo of <%= pet.petName %>"></a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title mt-2"><a class="txt-base" href="/pet/<%= pet._id %> ">
+                                        <%= pet.petName %>
+                                    </a></h5>
+                                    <p class="card-text"><span class="title">Breed:</span>
+                                        <%= pet.breed %> <br>
+                                            <span class="title">Color:</span>
+                                            <%= pet.color %> <br>
+                                                <span class="title">DOB:</span>
+                                                <%= pet.age.toISOString().split('T')[0] %>
+                                    </p>
+                                    <div class="d-flex justify-content-around">
+                                        <a class="btn btn-sm bg-base text-white" aria-label="Edit Pet Profile" href="/pet/<%= pet._id %>/edit"><i
+                                                class="fas fa-pencil-alt"></i></a>
+                                    
+                                        <form action='/pet/<%= pet.id %>?_method=DELETE' method="POST">
+                                        <button type="submit" class="btn btn-sm bg-base text-white" aria-label="Delete Pet Profile"><i
+                                                class="fas fa-trash-alt"></i></button>
+                                        </form>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <% }) %>
+                                            </div>
+                                            </div>
         </div>
-        <% pets.forEach(pet=> { %>
-            <div class="col-md-6 col-sm-6 col-lg-4">
-                <div class="card">
-                    <a href="/pet/<%= pet._id %> "><img
-                            src="https://images.unsplash.com/photo-1567733329278-256b8bbe153b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
-                            width="100%" alt="photo of <%= pet.petName %>"></a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="/pet/<%= pet._id %> ">
-                                <%= pet.petName %>
-                            </a>
-                        </h5>
-                        <div class="d-flex">
-                            <a class="btn btn-sm btn-primary" href="/pet/<%= pet._id %>/edit">EDIT PET</a>
-                            <form action='/pet/<%= pet.id %>?_method=DELETE' method="POST">
-                                <input class="btn btn-sm btn-danger" type="submit" value="DELETE PET" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <% }) %>
-        </div>
-        </section>
+    </section>
