@@ -5,7 +5,10 @@ const Pet = require('../models/pet')
 const { isLoggedIn } = require('../middleware')
 const multer = require('multer')
 const { storage } = require('../cloudinary')
+const { deleteMany } = require('../models/user')
 const upload = multer({ storage: storage })
+const { cloudinary } = require('../cloudinary')
+
 
 // PETS INDEX: showing all user's pet
 router.get('/', isLoggedIn, async (req, res) => {
@@ -30,14 +33,11 @@ router.get('/:id', isLoggedIn, async (req, res) => {
 })
 // POST: To create a new pet
 router.post('/', isLoggedIn, upload.single('photo'), async (req, res) => {
-    // console.log(req.body, "path is:", req.file.path, 'filename is:', req.file.filename)
-    // res.send('IT WORKED!!')
     const newPet = new Pet(req.body)
     newPet.photo.url = req.file.path
     newPet.photo.filename = req.file.filename
     newPet.owner = req.user._id
     await newPet.save()
-    console.log(newPet)
     res.redirect(`/pet/${newPet.id}`)
 })
 
@@ -48,14 +48,19 @@ router.get('/:id/edit', isLoggedIn, async (req, res) => {
 })
 
 // PUT: edit the data for the pet ~> /pet/:id
-router.put('/:id', isLoggedIn, async (req, res, next) => {
+router.put('/:id', isLoggedIn, upload.single('photo'), async (req, res, next) => {
     const editPet = await Pet.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    editPet.photo.url = req.file.path
+    editPet.photo.filename = req.file.filename
+    await editPet.save()
     req.flash('success', 'Successfully updated your pet information!')
     res.redirect(`/pet/${editPet._id}`)
 })
 
 // DELETE: delete the pet from database ~> /pet/: id
 router.delete('/:id', async (req, res) => {
+    const pet = await Pet.findById(req.params.id)
+    await cloudinary.uploader.destroy(pet.photo.filename)
     const deletedPet = await Pet.findByIdAndDelete(req.params.id)
     res.redirect('/pet')
 })
