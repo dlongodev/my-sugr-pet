@@ -361,4 +361,18 @@ input[type="radio"]:focus {
   font-weight: 700;
 }
 
-// Navigation
+.alert{
+    margin-bottom: 0;
+}
+
+.alert-success {
+    background-color: $base-color-light;
+    border-color: $base-color;
+    color: $base-color-medium
+}
+
+.alert-danger {
+    background-color: rgba($color: hsl(270, 45%, 85%), $alpha: 1.0);
+    border-color: rgba($color: hsl(270, 30%, 45%), $alpha: 1.0);
+    color: rgba($color: hsl(270, 30%, 45%), $alpha: 1.0);
+}

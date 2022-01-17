@@ -436,4 +436,20 @@ input[type="radio"]:focus {
   font-size: 0.7rem;
   font-weight: 700;
 }
+
+.alert {
+  margin-bottom: 0;
+}
+
+.alert-success {
+  background-color: #cdd6f4;
+  border-color: #809cef;
+  color: #647cc4;
+}
+
+.alert-danger {
+  background-color: #d9c8ea;
+  border-color: #735095;
+  color: #735095;
+}
 /*# sourceMappingURL=style.css.map */
