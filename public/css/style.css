@@ -452,4 +452,13 @@ input[type="radio"]:focus {
   border-color: #735095;
   color: #735095;
 }
+
+input[type='file'] {
+  border-radius: 0.5rem;
+}
+
+.custom-file-upload {
+  color: white;
+  cursor: pointer;
+}
 /*# sourceMappingURL=style.css.map */

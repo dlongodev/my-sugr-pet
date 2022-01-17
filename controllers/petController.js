@@ -3,6 +3,9 @@ const router = express.Router()
 const User = require('../models/user')
 const Pet = require('../models/pet')
 const { isLoggedIn } = require('../middleware')
+const multer = require('multer')
+const { storage } = require('../cloudinary')
+const upload = multer({ storage: storage })
 
 // PETS INDEX: showing all user's pet
 router.get('/', isLoggedIn, async (req, res) => {
@@ -26,10 +29,15 @@ router.get('/:id', isLoggedIn, async (req, res) => {
     res.render('pets/show', { pet, petAge })
 })
 // POST: To create a new pet
-router.post('/', isLoggedIn, async (req, res) => {
-    const newPet = await new Pet(req.body)
+router.post('/', isLoggedIn, upload.single('photo'), async (req, res) => {
+    // console.log(req.body, "path is:", req.file.path, 'filename is:', req.file.filename)
+    // res.send('IT WORKED!!')
+    const newPet = new Pet(req.body)
+    newPet.photo.url = req.file.path
+    newPet.photo.filename = req.file.filename
     newPet.owner = req.user._id
     await newPet.save()
+    console.log(newPet)
     res.redirect(`/pet/${newPet.id}`)
 })
 

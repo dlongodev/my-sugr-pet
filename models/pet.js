@@ -8,6 +8,10 @@ const PetSchema = new mongoose.Schema({
     breed: String,
     color: String,
     age: Date,
+    photo: {
+        url: String,
+        filename: String
+    },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

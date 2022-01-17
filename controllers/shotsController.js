@@ -7,7 +7,6 @@ const Shot = require('../models/shots')
 // INDEX for shots history
 router.get('/:id/shots/show', async (req, res) => {
     const pet = await Pet.findById(req.params.id).populate('shots')
-    console.log(pet.shots.sort())
     res.render('shots/show', { pet })
 });
 
@@ -15,7 +14,6 @@ router.get('/:id/shots/show', async (req, res) => {
 router.get('/:id/shots/new', async (req, res) => {
     const pet = await Pet.findById(req.params.id)
     const dates = pet.shots.sort(pet.shots.date)
-    console.log(dates)
     res.render('shots/new', { pet, })
 })
 

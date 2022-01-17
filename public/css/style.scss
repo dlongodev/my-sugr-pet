@@ -376,3 +376,13 @@ input[type="radio"]:focus {
     border-color: rgba($color: hsl(270, 30%, 45%), $alpha: 1.0);
     color: rgba($color: hsl(270, 30%, 45%), $alpha: 1.0);
 }
+
+input[type='file'] {
+   border-radius: 0.5rem;
+
+}
+.custom-file-upload {
+    color: white;
+    cursor: pointer;
+
+}

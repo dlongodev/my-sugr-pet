@@ -1,5 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config()
+}
 const express = require('express')
-require('dotenv').config()
 const app = express()
 const mongoose = require('mongoose')
 
@@ -75,7 +77,7 @@ app.use('/pet', shotsController)
 
 
 // LISTENER //////////////////////////////////////////////////////////////
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 3030);
 console.log(`dotenv= ${process.env.PORT}`)
 
 app.listen(app.get('port'), () => {
