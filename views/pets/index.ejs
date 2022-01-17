@@ -23,6 +23,9 @@
                                 <h5 class="card-title mt-2"><a class="txt-base" href="/pet/<%= pet._id %> ">
                                         <%= pet.petName %>
                                     </a></h5>
+                                    <a class="btn btn-base mb-1" class="txt-base" href="/pet/<%= pet._id %> ">
+                                        Begin Tracking
+                                    </a>
                                     <p class="card-text"><span class="title">Breed:</span>
                                         <%= pet.breed %> <br>
                                             <span class="title">Color:</span>
@@ -31,11 +34,13 @@
                                                 <%= pet.age.toISOString().split('T')[0] %>
                                     </p>
                                     <div class="d-flex justify-content-around">
-                                        <a class="btn btn-sm bg-base text-white" aria-label="Edit Pet Profile" href="/pet/<%= pet._id %>/edit"><i
+                                        <a class="btn btn-sm bg-base text-white" aria-labelledby="Edit Pet Profile" href="/pet/<%= pet._id %>/edit"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Pet Profile"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                     
                                         <form action='/pet/<%= pet.id %>?_method=DELETE' method="POST">
-                                        <button type="submit" class="btn btn-sm bg-base text-white" aria-label="Delete Pet Profile"><i
+                                        <button type="submit" class="btn btn-sm bg-base text-white" aria-labelledby="Delete Pet Profile"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Delete Pet Profile"><i
                                                 class="fas fa-trash-alt"></i></button>
                                         </form>
                                         </div>
