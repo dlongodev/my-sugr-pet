@@ -12,7 +12,7 @@
          <p class="h6 text-center mb-5">
             <%= pet.breed %>
                <%= pet.kind %>, <%= petAge %> years old <br>
-                     Born on <%= pet.age.toISOString().split('T')[0] %>
+                     Born on <%= pet.age.toLocaleString().split(',')[0] %>
          </p>
          <div class="col-sm-7">
             <div class="bg-white rounded">

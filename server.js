@@ -17,7 +17,7 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local')
 const User = require('./models/user')
 
-// CONFIGURATION //////////////////////////////////////////////////////////
+// CONFIGURATION //////////////////////////////////
 
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
@@ -27,8 +27,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
 
+const secret = process.env.SECRET || "thisisasessionsecretthatwillchange"
+
 const sessionConfig = {
-    secret: "thisisasessionsecretthatwillchange",
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -76,7 +78,7 @@ app.use('/pet', petController)
 app.use('/pet', shotsController)
 
 
-// LISTENER //////////////////////////////////////////////////////////////
+// LISTENER /////////////////////////////////////
 app.set('port', process.env.PORT || 3030);
 console.log(`dotenv= ${process.env.PORT}`)
 

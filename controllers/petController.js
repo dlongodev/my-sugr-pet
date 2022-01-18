@@ -57,7 +57,7 @@ router.put('/:id', isLoggedIn, upload.single('photo'), async (req, res, next) =>
     res.redirect(`/pet/${editPet._id}`)
 })
 
-// DELETE: delete the pet from database ~> /pet/: id
+// DELETE: delete the pet from database and photo ~> /pet/:id
 router.delete('/:id', async (req, res) => {
     const pet = await Pet.findById(req.params.id)
     await cloudinary.uploader.destroy(pet.photo.filename)

@@ -23,7 +23,7 @@
                 </fieldset>
                 <fieldset class="form-group d-flex mb-4">
                     <span class="input-group-text" id="age">Date of Birth:</span>
-                    <input class="form-control" type="date" name="age" id="age" value="<%= pet.age.toISOString().split('T')[0] %>">
+                    <input class="form-control" type="date" name="age" id="age" value="<%= pet.age.toLocaleString().split(',')[0] %>">
                 </fieldset>
                 <fieldset class="mb-4">
                     <label class="custom-file-upload" id="photo" for="formFile"><i class="fa fa-cloud-upload"></i>
