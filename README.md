@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/dlongodev/my-sugr-pet">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/mysugrpet-logo.png" alt="Logo" width="100" height="100">
   </a>
 
 <h3 align="center">MySugr Pet</h3>
@@ -41,7 +41,7 @@
     <a href="https://github.com/dlongodev/my-sugr-pet"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/dlongodev/my-sugr-pet">View Demo</a>
+    <a href="https://mysugrpet.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/dlongodev/my-sugr-pet/issues">Report Bug</a>
     ·
@@ -93,12 +93,16 @@ If you have a diabetic pet, you know keeping track of the date, time, dosage and
 
 * [Node.js](https://nodejs.org/)
 * [Express.js](https://expressjs.org/)
+* [MongoDB](https://www.mongodb.com/atlas/database)
+* [MongooseJS](https://mongoosejs.com/)
 * [<%= EJS %>](https://ejs.co/)
-* [Passport.js](https://www.passportjs.org/)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [HTML5](https://svelte.dev/)
 * [SCSS](https://sass-lang.com/)
+* [Passport.js](https://www.passportjs.org/)
 * [Bootstrap](https://getbootstrap.com)
-* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Multer](https://github.com/expressjs/multer)
+* [Cloudinary](https://cloudinary.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -132,6 +136,10 @@ This is an example of how to list things you need to use the software and how to
    ```js
    PORT='3300'
    MONGODB_URI='mongodb://localhost:27017/mysugrpet'
+   SECRET='thisisasecretthatwillchangelater"
+   CLOUDINARY_CLOUD_NAME=put-your-cloudinary-name
+   CLOUDINARY_KEY=put-your-cloudinary-key
+   CLOUDINARY_SECRET=put-your-cloudinary-secret
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -141,20 +149,19 @@ This is an example of how to list things you need to use the software and how to
 ## Roadmap
 ### MVP / User Stories
 
-- [ ] As a user, I can register my information so I can log in when I want to use the tracker
-- [ ] As a user, I can create a profile for my pet so I can have his information saved for when I need it
-- [ ] As a user, I can choose my pet to be a dog or cat and the interface will show icons that present my pet
-- [ ] As a user, I can easily see the buttons I need to press so I can begin tracking my pet insulin injections
-- [ ] As a user, when I need to choose the injection location, I can easily see the last 4 injections so I can make the right location decision
-- [ ] As a user, I want to be able to fix the data if I make a mistake
-- [ ] As a user, I want to be able to delete an entry if I make a mistake
-- [ ] As a user, I want to be able to make changes to my pet profile or user information
+- [x] As a user, I can register my information so I can log in when I want to use the tracker
+- [x] As a user, I can create a profile for my pet so I can have his information saved for when I need it
+- [x] As a user, I can choose my pet to be a dog or cat and the interface will show icons that present my pet
+- [x] As a user, I can easily see the buttons I need to press so I can begin tracking my pet insulin injections
+- [x] As a user, when I need to choose the injection location, I can easily see the last 4 injections so I can make the right location decision
+- [x] As a user, I want to be able to fix the data if I make a mistake
+- [x] As a user, I want to be able to delete an entry if I make a mistake
+- [x] As a user, I want to be able to make changes to my pet profile
 
 ### Stretch Goals
 
 - [ ] As a user, I want to export the data so I can show it to my vet
-- [ ] As a user, I want to add my pet photo to his profile
-- [ ] As a user, I want to customize the pet character colors/breed to match my pet
+- [x] As a user, I want to add my pet photo to his profile
 - [ ] As a user, I want to keep a record of my pet medical history on its profile, from glucose levels to observational behaviors
 - [ ] As a user, I want to have a record of vet visits and expenses
 - [ ] As a user, I want to create reminders for daily insulin shots, food, water, and exercise
