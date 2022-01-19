@@ -30,10 +30,8 @@
 <br />
 <div align="center">
   <a href="https://github.com/dlongodev/my-sugr-pet">
-    <img src="images/mysugrpet-logo.png" alt="Logo" width="100" height="100">
+    <img src="images/mysugrpet-logo.png" alt="MySugrPet Logo" width="200" height="200">
   </a>
-
-<h3 align="center">MySugr Pet</h3>
 
   <p align="center">
     MySugrPet is an insulin tracking application for pets with diabetes. 
