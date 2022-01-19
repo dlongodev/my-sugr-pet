@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/dlongodev/my-sugr-pet">
-    <img src="images/mysugrpet-logo.png" alt="MySugrPet Logo" width="200" height="200">
+    <img src="images/mysugrpet-logo.png" alt="MySugrPet Logo" width="250" height="250">
   </a>
 
   <p align="center">
@@ -79,9 +79,14 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-If you have a diabetic pet, you know keeping track of the date, time, dosage and injection location is not an easy task. This tracker is simple but extremely helpful to make sure you are doing the right thing for your pet to stay healthy. Keep track, make changes, print your records to show your vet are a few of the many benefits of MySugrPet!
+If you have a diabetic pet, you know keeping track of the date, time, dosage and injection location is not an easy task. This tracker is simple but extremely helpful to make sure you are doing the right thing for your pet to stay healthy. This web application comes with an easy to use UI with visuals to make sure you're making the right choice everyday for insulin injection location, personalized with your pet's photo, and useful for when you need to reference your records when visiting your vet.
 
-[![Product Name Screen Shot][product-screenshot]](https://dlongodev.github.pages.io/my-sugr-pet)
+### Screenshots
+[![Product Name Screen Shot][product-screenshot]](https://mysugrpet.herokuapp.com/)
+
+### Original Wireframes
+
+[![Product Name Screen Shot][product-wireframe]](https://mysugrpet.herokuapp.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -105,20 +110,10 @@ If you have a diabetic pet, you know keeping track of the date, time, dosage and
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
@@ -216,7 +211,7 @@ Project Link: [https://github.com/dlongodev/my-sugr-pet](https://github.com/dlon
 * Matt Keane - Instructional Associate
 * Paresh Sharma - Instructional Associate
 * [Colt Steele - YelpCamp Lessons](https://www.udemy.com/course/the-web-developer-bootcamp/)
-* [Pet icon by catalyststuff - freepik](https://www.freepik.com/vectors/background)
+* [Pet icon by catalyststuff & app design inspiration from pikisuperstar - freepik](https://www.freepik.com/popular-vectors)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -236,4 +231,5 @@ Project Link: [https://github.com/dlongodev/my-sugr-pet](https://github.com/dlon
 [license-url]: https://github.com/dlongodev/my-sugr-pet/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/danielealongo
-[product-screenshot]: images/mySugrPet_wireframes.jpg
+[product-wireframe]: images/mySugrPet_wireframes.jpg
+[product-screenshot]: images/mySugrPet_screenshots.jpg
