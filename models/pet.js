@@ -24,6 +24,11 @@ const PetSchema = new mongoose.Schema({
     ]
 })
 
+PetSchema.virtual('squarePhoto').get(function () {
+    return this.photo.url.replace('/upload', '/upload/w_500,ar_1:1,c_fill,g_auto')
+})
+
+
 PetSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
         await Shot.deleteMany({
