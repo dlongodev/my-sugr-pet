@@ -12,15 +12,13 @@
                     </h3>
                     <h5>Insulin Injections History</h5>
         </div>
-        <% pet.shots.forEach(shot=> { %>
+        <% sortedDates.forEach(shot=> { %>
             <article class="col-sm-10 d-flex justify-content-around align-items-center bg-white round-bdr-1 mb-3 shadow">
                 <div class="mb-3 text-center">
                     <p class="mt-2 mb-0 title">
                         <%= shot.injectionSite %>
                     </p>
-                    <!-- <a href="/pet/<%=// pet.id %>/shots/<%= //shot.id %>/edit"> -->
                     <img src="/img/shot_<%= shot.injectionSite %>.svg" width="60px" alt="icon for injection on <%= shot.injectionSite %> ">
-                    <!-- </a> -->
                     </div>
                 <div>
                     <%= shot.date.toISOString().split('T')[0] %>
