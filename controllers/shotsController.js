@@ -8,16 +8,17 @@ const Shot = require('../models/shots')
 router.get('/:id/shots/show', async (req, res) => {
     const pet = await Pet.findById(req.params.id).populate('shots')
     let sortedDates = pet.shots.sort((first, second) => {
-        let firstDate = first.date.getTime()
+        let firstDate = first.date.getTime() 
         let secondDate = second.date.getTime()
         return secondDate - firstDate
     })
+    // console.log(sortedDates)
     res.render('shots/show', { pet, sortedDates })
 });
 
 // GET: form to create new shot
 router.get('/:id/shots/new', async (req, res) => {
-    const pet = await Pet.findById(req.params.id)
+    const pet = await Pet.findById(req.params.id).populate('shots')
     res.render('shots/new', { pet, })
 })
 
@@ -25,7 +26,7 @@ router.get('/:id/shots/new', async (req, res) => {
 router.post('/:id/shots', async (req, res) => {
     const pet = await Pet.findById(req.params.id)
     const newShot = await new Shot(req.body)
-    pet.shots.push(newShot)
+    pet.shots.unshift(newShot)
     await newShot.save()
     await pet.save()
     req.flash('success', 'You successfully tracked a new insulin injection!')
