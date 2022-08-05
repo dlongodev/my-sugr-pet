@@ -8,6 +8,8 @@ const Shot = require('../models/shots')
 router.get('/:id/shots/show', async (req, res) => {
     const pet = await Pet.findById(req.params.id).populate('shots')
     let sortedDates = pet.shots.sort((first, second) => {
+        // let firstTime = Number(first.time.split(':')[0]) * 60 + Number(first.time.split(':')[1]) * 1000
+        // let secondTime = Number(second.time.split(':')[0]) * 60 + Number(second.time.split(':')[1]) * 1000
         let firstDate = first.date.getTime() 
         let secondDate = second.date.getTime()
         return secondDate - firstDate
@@ -19,6 +21,8 @@ router.get('/:id/shots/show', async (req, res) => {
 // GET: form to create new shot
 router.get('/:id/shots/new', async (req, res) => {
     const pet = await Pet.findById(req.params.id).populate('shots')
+    // let frontRight = await Pet.findById({ _id: req.params.id }, { 'shots.injectionLocation': 'front-right' })
+    // console.log(frontRight.time, frontRight.date)
     res.render('shots/new', { pet, })
 })
 
