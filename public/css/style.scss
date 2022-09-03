@@ -1,6 +1,7 @@
 $base-color: hsl(225, 78%, 72%);
+$base-color-alpha: hsla(225, 78%, 72%, 0.4);
 $base-color-dark: hsl(225, 30%, 24%);
-$base-color-light: #cdd6f4;
+$base-color-light: hsl(226, 64%, 88%);
 $base-color-medium: hsl(225, 45%, 58%);
 $down-shadow: 0rem 0rem 0.5rem -0.3rem $base-color-medium,
   0rem 0rem 1.5rem 0rem rgba($base-color-medium, 0.4);
@@ -82,6 +83,19 @@ a:hover {
   grid-template-columns: 6fr;
   align-items: center;
   width: 100%;
+  overflow-y: auto;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    position: absolute;
+    width: 10px; /* width of the entire scrollbar */
+  }
+  &::-webkit-scrollbar-track {
+    background: $base-color-light; /* color of the tracking area */
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $base-color-alpha; /* color of the scroll thumb */
+  }
 }
 
 .login-screen {
@@ -93,12 +107,13 @@ a:hover {
 }
 
 .navbar {
-  background-color: $base-color;
-  color: $base-color-light;
+  background-color: white;
+  color: $base-color;
   box-shadow: $down-shadow;
   padding: 0 1.5rem;
   font-size: 0.8rem;
   height: 4.5rem;
+  z-index: 100;
 
   svg {
     padding-top: 0.5rem;
@@ -108,16 +123,16 @@ a:hover {
   .navbar-link {
     display: flex;
     flex-direction: column;
-    color: $base-color-light;
+    color: $base-color;
     &:hover {
-      color: white;
+      color: $base-color-dark;
       text-decoration: none;
     }
   }
-}
-
-.wave {
-  height: 7rem;
+  nav.shadow-up-dark {
+    box-shadow: 0rem -0.5rem 0.9rem 0rem hsl(225deg 45% 58%),
+      0rem -2rem 3rem -0.2rem rgb(100 124 196 / 40%);
+  }
 }
 
 .content {
@@ -258,7 +273,8 @@ footer {
 
 // FORM FIELDS
 
-.form-control {
+.form-control,
+.custom-file {
   border: none;
   height: 3rem;
   border-radius: 0 0.5rem 0.5rem 0;
@@ -292,6 +308,7 @@ input[date] {
 .col label {
   overflow: hidden;
   position: relative;
+  border-radius: 0.5rem;
 }
 .imgbgchk:checked + label > .tick_container {
   opacity: 1;
@@ -300,7 +317,6 @@ input[date] {
 .imgbgchk:checked + label > img {
   transform: scale(1.25);
   opacity: 0.3;
-  border-radius: 0.5rem;
 }
 .tick_container {
   transition: 0.5s ease;
@@ -317,7 +333,7 @@ input[date] {
   background-color: $base-color-medium;
   color: white;
   font-size: 1rem;
-  padding: 6px 12px;
+  padding: 6px 6px;
   height: 2rem;
   width: 2rem;
   border-radius: 100%;
@@ -427,7 +443,23 @@ input[type="radio"]:focus {
 input[type="file"] {
   border-radius: 0.5rem;
 }
-.custom-file-upload {
-  color: white;
-  cursor: pointer;
+.custom-file-label {
+  border-radius: 0.5rem;
+  line-height: 2.3rem;
+  color: $base-color;
+  font-weight: 700;
+  height: calc(2.25rem + 12px);
+  border: none;
+  border-radius: 0.5rem;
+
+  &::after {
+    font-weight: 700;
+    line-height: 2.3rem;
+    background-color: none;
+    border-left: $base-color-light;
+    height: calc(2.25rem + 12px);
+    border: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background-color: $base-color-light;
+  }
 }

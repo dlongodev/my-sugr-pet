@@ -27,7 +27,7 @@ body {
 }
 
 .txt-light {
-  color: #cdd6f4;
+  color: hsl(226deg, 64%, 88%);
 }
 
 .txt-dark {
@@ -47,7 +47,7 @@ a:hover {
 }
 
 .h6 {
-  color: #cdd6f4;
+  color: hsl(226deg, 64%, 88%);
 }
 
 .title {
@@ -88,6 +88,18 @@ a:hover {
   grid-template-columns: 6fr;
   align-items: center;
   width: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+.app-main::-webkit-scrollbar {
+  position: absolute;
+  width: 10px; /* width of the entire scrollbar */
+}
+.app-main::-webkit-scrollbar-track {
+  background: hsl(226deg, 64%, 88%); /* color of the tracking area */
+}
+.app-main::-webkit-scrollbar-thumb {
+  background-color: hsla(225deg, 78%, 72%, 0.4); /* color of the scroll thumb */
 }
 
 .login-screen {
@@ -99,12 +111,13 @@ a:hover {
 }
 
 .navbar {
-  background-color: hsl(225deg, 78%, 72%);
-  color: #cdd6f4;
+  background-color: white;
+  color: hsl(225deg, 78%, 72%);
   box-shadow: 0rem 0rem 0.5rem -0.3rem hsl(225deg, 45%, 58%), 0rem 0rem 1.5rem 0rem rgba(100, 124, 196, 0.4);
   padding: 0 1.5rem;
   font-size: 0.8rem;
   height: 4.5rem;
+  z-index: 100;
 }
 .navbar svg {
   padding-top: 0.5rem;
@@ -113,15 +126,14 @@ a:hover {
 .navbar .navbar-link {
   display: flex;
   flex-direction: column;
-  color: #cdd6f4;
+  color: hsl(225deg, 78%, 72%);
 }
 .navbar .navbar-link:hover {
-  color: white;
+  color: hsl(225deg, 30%, 24%);
   text-decoration: none;
 }
-
-.wave {
-  height: 7rem;
+.navbar nav.shadow-up-dark {
+  box-shadow: 0rem -0.5rem 0.9rem 0rem hsl(225deg, 45%, 58%), 0rem -2rem 3rem -0.2rem rgba(100, 124, 196, 0.4);
 }
 
 .content {
@@ -136,7 +148,7 @@ a:hover {
   margin-bottom: 0;
 }
 .content h5 {
-  color: #cdd6f4;
+  color: hsl(226deg, 64%, 88%);
   letter-spacing: 0.1rem;
 }
 .content a {
@@ -183,7 +195,7 @@ footer {
 }
 .img-box img {
   border-radius: 50%;
-  border: 0.4rem solid #cdd6f4;
+  border: 0.4rem solid hsl(226deg, 64%, 88%);
 }
 
 .shadow {
@@ -234,35 +246,36 @@ footer {
 }
 .btn-white:hover {
   color: hsl(225deg, 30%, 24%);
-  background-color: #cdd6f4;
+  background-color: hsl(226deg, 64%, 88%);
 }
 
 .btn-outline-light {
-  color: #cdd6f4;
-  border-color: #cdd6f4;
+  color: hsl(226deg, 64%, 88%);
+  border-color: hsl(226deg, 64%, 88%);
   border-radius: 0.6rem;
 }
 .btn-outline-light:hover {
-  background-color: #cdd6f4;
+  background-color: hsl(226deg, 64%, 88%);
   color: hsl(225deg, 45%, 58%);
-  border-color: #cdd6f4;
+  border-color: hsl(226deg, 64%, 88%);
 }
 
 footer {
-  color: #cdd6f4;
+  color: hsl(226deg, 64%, 88%);
 }
 footer i {
   font-size: 1.5rem;
 }
 
-.form-control {
+.form-control,
+.custom-file {
   border: none;
   height: 3rem;
   border-radius: 0 0.5rem 0.5rem 0;
 }
 
 input[date] {
-  color: #cdd6f4;
+  color: hsl(226deg, 64%, 88%);
 }
 
 .input-group-text {
@@ -290,6 +303,7 @@ input[date] {
 .col label {
   overflow: hidden;
   position: relative;
+  border-radius: 0.5rem;
 }
 
 .imgbgchk:checked + label > .tick_container {
@@ -299,7 +313,6 @@ input[date] {
 .imgbgchk:checked + label > img {
   transform: scale(1.25);
   opacity: 0.3;
-  border-radius: 0.5rem;
 }
 
 .tick_container {
@@ -318,7 +331,7 @@ input[date] {
   background-color: hsl(225deg, 45%, 58%);
   color: white;
   font-size: 1rem;
-  padding: 6px 12px;
+  padding: 6px 6px;
   height: 2rem;
   width: 2rem;
   border-radius: 100%;
@@ -415,7 +428,7 @@ input[type=radio]:focus {
 }
 
 .alert-success {
-  background-color: #cdd6f4;
+  background-color: hsl(226deg, 64%, 88%);
   border-color: hsl(225deg, 78%, 72%);
   color: hsl(225deg, 45%, 58%);
 }
@@ -430,7 +443,22 @@ input[type=file] {
   border-radius: 0.5rem;
 }
 
-.custom-file-upload {
-  color: white;
-  cursor: pointer;
+.custom-file-label {
+  border-radius: 0.5rem;
+  line-height: 2.3rem;
+  color: hsl(225deg, 78%, 72%);
+  font-weight: 700;
+  height: calc(2.25rem + 12px);
+  border: none;
+  border-radius: 0.5rem;
+}
+.custom-file-label::after {
+  font-weight: 700;
+  line-height: 2.3rem;
+  background-color: none;
+  border-left: hsl(226deg, 64%, 88%);
+  height: calc(2.25rem + 12px);
+  border: none;
+  border-radius: 0 0.5rem 0.5rem 0;
+  background-color: hsl(226deg, 64%, 88%);
 }

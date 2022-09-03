@@ -1,4 +1,76 @@
-<main class="bg-base">
+<main class="bg-base app-main main-screen">
+    <div class="row justify-content-center align-center m-0">
+        <div class="col-sm-10 col-md-8 mx-3">
+            <div class="text-center text-white">
+                <h3>Edit Your Pet Profile</h3>
+            </div>
+            <form action="/pet/<%= pet.id %>?_method=PUT " method="POST" enctype="multipart/form-data">
+                <fieldset class="form-group text-center">
+                    <div class="row text-white">
+                        <legend>Choose kind of pet</legend>
+                        <div class='col text-right'>
+                            <input type="radio" name="kind" id="dog" class="d-none imgbgchk" value="dog" <% if (pet.kind==="dog" ) { %>
+                            checked="checked"
+                            <% } %> >
+                                <label for="dog" aria-describedby="dog">
+                                    <img src="../../img/icon-dog.png" alt="dog icon">
+                                    <div class="tick_container">
+                                        <div class="tick"><i class="fa fa-check"></i></div>
+                                    </div>
+                                </label>
+                        </div>
+                        <div class='col text-left'>
+                            <input type="radio" name="kind" id="cat" class="d-none imgbgchk" value="cat" <% if (pet.kind==="cat" ) { %>
+                            checked="checked"
+                            <% } %> >
+                                <label for="cat" aria-describedby="cat">
+                                    <img src="../../img/icon-cat.png" alt="Image 2">
+                                    <div class="tick_container">
+                                        <div class="tick"><i class="fa fa-check"></i></div>
+                                    </div>
+                                </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group d-flex mb-3">
+                    <span class="input-group-text" id="petName">Pet Name:</span>
+                    <input class="form-control" type="text" name="petName" id="petName" value="<%= pet.petName %> ">
+                </fieldset>
+                <fieldset class="form-group d-flex mb-3">
+                    <span class="input-group-text" id="breed">Breed:</span>
+                    <input class="form-control" type="text" name="breed" id="breed" value="<%= pet.breed %> ">
+                </fieldset>
+                <fieldset class="form-group d-flex mb-3">
+                    <span class="input-group-text" id="color">Color:</span>
+                    <input class="form-control" type="text" name="color" id="color" value="<%= pet.color %> ">
+                </fieldset>
+                <fieldset class="form-group d-flex mb-3">
+                    <span class="input-group-text" id="age">Date of Birth:</span>
+                    <input class="form-control" type="date" name="age" id="age" value="<%= pet.age.toISOString().split('T')[0] %>">
+                </fieldset>
+                <fieldset class="mb-3 custom-file">
+                    <input class="form-control" type="file" name="photo" id="formFile">
+                    <label class="custom-file-label" id="photo" for="formFile">
+                        Upload Your Pet Photo</label>
+                </fieldset>
+                <div class="d-flex justify-content-center mt-3">
+                    <input class="btn btn-base btn-white shadow" type="submit" value="Edit My Pet">
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<nav class="navbar shadow-up-dark">
+    <div>
+        <a href="/pet" class="navbar-link"><i class="fa-solid fa-paw"></i>
+            My Pets</a>
+    </div>
+    <div>
+        <a class="navbar-link" href="/logout"><i class="fas fa-sign-out-alt"></i>
+            Logout</a>
+    </div>
+</nav>
+<!-- <main class="bg-base">
     <div class="d-flex justify-content-between mt-3 px-3">
         <div><a href="/pet" class="btn btn-sm btn-outline-light"><i class="fas fa-chevron-circle-left"></i></a></div>
         <div><a class="btn btn-sm btn-outline-light" href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a></div>
@@ -47,4 +119,4 @@
             d="M1024-.2H0V161.39c115.11,0,177.87-54.1,311.56-54.1s222.63,33.9,390.26,33.9c189.44,0,322.18-102.8,322.18-102.8Z"
             fill="#809cef" />
     </svg>
-</div>
+</div> -->
