@@ -4,6 +4,8 @@ if (process.env.NODE_ENV !== "production") {
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const livereload = require('livereload')
+const connectLivereload = require('connect-livereload')
 
 const userController = require('./controllers/userController')
 const petController = require('./controllers/petController')
@@ -18,8 +20,17 @@ const LocalStrategy = require('passport-local')
 const User = require('./models/user')
 
 // CONFIGURATION //////////////////////////////////
+const liveReloadServer = livereload.createServer()
+liveReloadServer.watch(__dirname, "views")
+
+liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+        liveReloadServer.refresh("/");
+    }, 50)
+})
 
 app.use(express.static(__dirname + '/public'))
+app.use(connectLivereload())
 app.use(methodOverride('_method'))
 app.use(expressEjsLoyouts)
 
