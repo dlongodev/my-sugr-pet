@@ -1,22 +1,22 @@
-<main class="app-main mb-5">
+<main class="app-main">
     <div class="content">
         <div class=" m-4">
             <h2 class="text-white mt-5">Login</h2>
-            </div>
-            <form action="/login" method="POST">
-                <fieldset class="form-group d-flex mb-4">
-                    <span class="input-group-text" id="username">Username:</span>
-                    <input class="form-control" type="text" name="username" id="username" aria-describedby="Username">
-                </fieldset>
-                <fieldset class="form-group d-flex mb-4">
-                    <span class="input-group-text" id="username">Password:</span>
-                    <input class="form-control" type="password" name="password" id="password" aria-describedby="Password">
-                    </fieldset>
-                    <div class="txt-light  text-center">
-                        <p>Need to Register? <a class="txt-light" href="/register">Click Here</a> </p>
-                    </div>
-                    <div class="mt-20vh mb-2 d-flex justify-content-center"><input class="btn btn-base shadow" type="submit"
-                            value="Login"></div>
-                </form>
         </div>
+        <form action="/login" method="POST">
+            <fieldset class="form-group d-flex mb-4">
+                <span class="input-group-text" id="username">Username:</span>
+                <input class="form-control" type="text" name="username" id="username" aria-describedby="Username">
+            </fieldset>
+            <fieldset class="form-group d-flex mb-4">
+                <span class="input-group-text" id="username">Password:</span>
+                <input class="form-control" type="password" name="password" id="password" aria-describedby="Password">
+            </fieldset>
+            <div class="txt-light  text-center">
+                <p>Need to Register? <a class="txt-light" href="/register">Click Here</a> </p>
+            </div>
+            <div class="mt-20vh mb-2 d-flex justify-content-center"><input class="btn btn-base shadow" type="submit" value="Login"></div>
+        </form>
+    </div>
 </main>
+<%- include('../partials/footer.ejs') %>
