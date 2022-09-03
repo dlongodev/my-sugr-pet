@@ -19,7 +19,7 @@ const User = require('./models/user')
 
 // CONFIGURATION //////////////////////////////////
 
-app.use(express.static('public'))
+app.use(express.static(__dirname + '/public'))
 app.use(methodOverride('_method'))
 app.use(expressEjsLoyouts)
 

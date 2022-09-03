@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "nodemon server.js & npm run scss",
-    "scss": "sass --watch src/scss/main.scss public/styles/main.css"
+    "dev": "nodemon server.js & npm run scss-watch",
+    "scss-watch": "sass --no-source-map --watch public/css/style.scss public/css/style.css"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "connect-mongo": "^4.6.0",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
-    "express": "^4.18.1",
+    "express": "^4.17.2",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.2",
     "method-override": "^3.0.0",
