@@ -26,11 +26,18 @@ router.get('/new', isLoggedIn, async (req, res) => {
 router.get('/:id', isLoggedIn, async (req, res) => {
     const pet = await Pet.findById(req.params.id)
         .populate('shots').populate('owner')
+    let sortedDates = pet.shots.sort((first, second) => {
+        // let firstTime = Number(first.time.split(':')[0]) * 60 + Number(first.time.split(':')[1]) * 1000
+        // let secondTime = Number(second.time.split(':')[0]) * 60 + Number(second.time.split(':')[1]) * 1000
+        let firstDate = first.date.getTime()
+        let secondDate = second.date.getTime()
+        return secondDate - firstDate
+    })
+    let latestShot = sortedDates.shift()
     let today = Date.now()
     let petDOB = pet.age.valueOf()
     let petAge = Math.floor((today - petDOB) / 31556952000)
-    const petBirthday = moment(petDOB).format('MMMM, D, YYYY')
-    res.render('pets/show', { pet, petAge, petBirthday })
+    res.render('pets/show', { pet, petAge, latestShot, moment })
 })
 // POST: To create a new pet
 router.post('/', isLoggedIn, upload.single('photo'), async (req, res) => {

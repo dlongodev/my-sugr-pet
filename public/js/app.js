@@ -1,6 +1,11 @@
 // Bootstrap helper function for form file inpyt type
 bsCustomFileInput.init()
 
+// Bootstrap enable tooltip
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+
 // Bootstrap dismiss alert afte 2sec
 $(".alert").alert();
 window.setTimeout(function () { $(".alert").alert('close'); }, 2000);

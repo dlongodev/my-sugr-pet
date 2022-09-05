@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../models/user')
 const Pet = require('../models/pet')
 const Shot = require('../models/shots')
+const moment = require('moment')
 
 // INDEX for shots history
 router.get('/:id/shots/show', async (req, res) => {
@@ -10,12 +11,12 @@ router.get('/:id/shots/show', async (req, res) => {
     let sortedDates = pet.shots.sort((first, second) => {
         // let firstTime = Number(first.time.split(':')[0]) * 60 + Number(first.time.split(':')[1]) * 1000
         // let secondTime = Number(second.time.split(':')[0]) * 60 + Number(second.time.split(':')[1]) * 1000
-        let firstDate = first.date.getTime() 
+        let firstDate = first.date.getTime()
         let secondDate = second.date.getTime()
         return secondDate - firstDate
     })
     // console.log(sortedDates)
-    res.render('shots/show', { pet, sortedDates })
+    res.render('shots/show', { pet, sortedDates, moment })
 });
 
 // GET: form to create new shot

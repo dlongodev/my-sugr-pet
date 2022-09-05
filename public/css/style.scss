@@ -82,6 +82,7 @@ a:hover {
   display: grid;
   grid-template-columns: 6fr;
   align-items: center;
+  justify-items: center;
   width: 100%;
   overflow-y: auto;
   position: relative;
@@ -124,6 +125,9 @@ a:hover {
     display: flex;
     flex-direction: column;
     color: $base-color;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
     &:hover {
       color: $base-color-dark;
       text-decoration: none;
@@ -133,6 +137,36 @@ a:hover {
     box-shadow: 0rem -0.5rem 0.9rem 0rem hsl(225deg 45% 58%),
       0rem -2rem 3rem -0.2rem rgb(100 124 196 / 40%);
   }
+  .main-icon-container {
+    position: relative;
+    width: 3rem;
+  }
+  .main-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    text-align: center;
+    width: 5rem;
+    height: 5rem;
+    background-color: $base-color;
+    border-radius: 50%;
+
+    a.navbar-link {
+      color: white;
+    }
+    svg {
+      font-size: 2.5rem;
+      padding: 0;
+    }
+  }
+}
+.tooltip-inner {
+  background: $base-color-dark;
+}
+.tooltip.bs-tooltip-auto[x-placement^="top"] .arrow::before,
+.tooltip.bs-tooltip-top .arrow::before {
+  border-top-color: $base-color-dark;
 }
 
 .content {

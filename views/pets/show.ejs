@@ -1,28 +1,58 @@
-<main class="app-main mb-5">
-   <div class="d-flex justify-content-between mt-3 px-2 w-100">
-      <div><a href="/pet" class="btn btn-sm btn-outline-light"><i class="fas fa-chevron-circle-left"></i></a></div>
-      <div><a class="btn btn-sm btn-outline-light" href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a></div>
+<main class="app-main main-screen">
+   <div class="col-sm-12 content">
+      <h1 class="text-white">
+         <%= pet.petName %>
+      </h1>
+      <p class="h6 text-center mb-3">
+         <%= pet.breed %>
+            <%= pet.kind %>, <%= petAge %> years old <br>
+                  Born <%= moment(pet.age.toISOString().split('T')[0]).format('MMMM D, YYYY') %>
+      </p>
+      <div class="col-sm-6">
+         <div class="bg-white rounded">
+            <img class="img-fluid rounded p-3 shadow" src="<%= pet.squarePhoto %> " alt="photo of <%= pet.petName %> ">
+         </div>
+      </div>
+      <article class="col-sm-10 d-flex justify-content-around align-items-center bg-white round-bdr-1 mt-3 shadow">
+         <div class="mb-3 text-center">
+            <p class="mt-2 mb-0 title">
+               <%= latestShot.injectionSite %>
+            </p>
+            <img src="/img/shot_<%= latestShot.injectionSite %>.svg" width="60px" alt="icon for injection on <%= latestShot.injectionSite %> ">
+         </div>
+         <div>
+            <%= moment(latestShot.date.toISOString().split('T')[0]).format('L') %>
+         </div>
+         <div>
+            <%= moment(latestShot.time, "H:mm" ).format("LT") %>
+         </div>
+         <div>
+            <%= latestShot.dosage %>
+         </div>
+      </article>
    </div>
-   <div class="col-sm 12 text-left mt-3">
+</main>
+<nav class="navbar">
+   <div>
+      <a href="/pet" class="navbar-link"><i class="fa-solid fa-paw"></i>
+         My Pets</a>
    </div>
-      <div class="col-sm-12 content">
-         <h1 class="text-white mt-3">
-            <%= pet.petName %>
-         </h1>
-         <p class="h6 text-center mb-5">
-            <%= pet.breed %>
-               <%= pet.kind %>, <%= petAge %> years old <br>
-                     Born on <%= pet.age.toISOString().split('T')[0] %>
-         </p>
-         <div class="col-sm-7">
-            <div class="bg-white rounded">
-               <img class="img-fluid rounded p-3 shadow" src="<%= pet.squarePhoto %> " alt="photo of <%= pet.petName %> ">
-            </div>
-         </div>
-         <div class="d-md-inline-flex justify-content-md-center d-sm-flex justify-content-sm-center m-5 pb-4">
-            <a class="btn btn-base shadow mx-1 my-3" href="<%= pet._id %>/shots/new">Track Insulin</a>
-            <a class="btn btn-base btn-white shadow mx-1 my-3" href="<%= pet._id %>/shots/show">View History</a>
-         </div>
-         </div>
-         </main>
-
+   <div>
+      <a href="/pet/new" class="navbar-link"><i class="fa-solid fa-square-plus"></i>
+         Add Pet</a>
+   </div>
+   <div class="main-icon-container">
+      <div class="main-icon shadow" data-toggle="tooltip" data-placement="top" title="Track Insulin">
+         <a href="<%= pet._id %>/shots/new" class="navbar-link"><i class="fa-solid fa-syringe"></i></a>
+      </div>
+   </div>
+   <div>
+      <a href="<%= pet._id %>/shots/show" class="navbar-link">
+         <i class="fa-solid fa-clock-rotate-left"></i>
+         History</a>
+   </div>
+   <div>
+      <a class="navbar-link" href="/logout"><i class="fas fa-sign-out-alt"></i>
+         Logout</a>
+   </div>
+</nav>
