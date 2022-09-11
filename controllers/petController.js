@@ -37,13 +37,21 @@ router.get('/:id', isLoggedIn, async (req, res) => {
     let today = Date.now()
     let petDOB = pet.age.valueOf()
     let petAge = Math.floor((today - petDOB) / 31556952000)
+    console.log({ latestShot, pet })
     res.render('pets/show', { pet, petAge, latestShot, moment })
 })
 // POST: To create a new pet
 router.post('/', isLoggedIn, upload.single('photo'), async (req, res) => {
+    console.log(req.body)
+    const defaultCatImg = "https://res.cloudinary.com/dsey1wpxj/image/upload/v1662388316/MySugrPet/a1mwrvz9byyogunlnozv.png"
+    const defaultDogImg = "https://res.cloudinary.com/dsey1wpxj/image/upload/v1662388316/MySugrPet/ftdfzqn1bjmfzrsvmffa.png"
     const newPet = new Pet(req.body)
-    newPet.photo.url = req.file.path
-    newPet.photo.filename = req.file.filename
+    if (!!req.file) {
+        newPet.photo.url = req.file.path
+        newPet.photo.filename = req.file.filename
+    } else {
+        newPet.photo.url = req.body.kind === "cat" ? defaultCatImg : defaultDogImg
+    }
     newPet.owner = req.user._id
     await newPet.save()
     res.redirect(`/pet/${newPet.id}`)
@@ -71,7 +79,9 @@ router.put('/:id', isLoggedIn, upload.single('photo'), async (req, res, next) =>
 // DELETE: delete the pet from database and photo ~> /pet/:id
 router.delete('/:id', async (req, res) => {
     const pet = await Pet.findById(req.params.id)
-    await cloudinary.uploader.destroy(pet.photo.filename)
+    if (!!pet.photo.filename) {
+        await cloudinary.uploader.destroy(pet.photo.filename)
+    }
     const deletedPet = await Pet.findByIdAndDelete(req.params.id)
     res.redirect('/pet')
 })

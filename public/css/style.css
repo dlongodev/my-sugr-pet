@@ -42,6 +42,10 @@ body {
   background: hsl(225deg, 78%, 72%);
 }
 
+.bg-color-danger {
+  background-color: hsl(349deg, 76%, 67%);
+}
+
 a:hover {
   color: hsl(225deg, 45%, 58%);
 }
@@ -173,11 +177,11 @@ a:hover {
 
 .content {
   z-index: 1;
-  grid-column: span 4;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 .content h1 {
   margin-bottom: 0;
@@ -189,18 +193,18 @@ a:hover {
 .content a {
   text-decoration: none;
 }
+.content form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+.content form legend {
+  font-size: 1rem;
+  margin: 0;
+}
 
 footer {
   grid-column: span 1;
-}
-
-.content-mt {
-  margin-top: 10vh;
-}
-@media only screen and (min-width: 600px) {
-  .content-mt {
-    background-position-y: -10rem;
-  }
 }
 
 .logo {
@@ -215,22 +219,62 @@ footer {
 }
 
 .pet-card {
+  position: relative;
   display: flex;
-  flex-direction: column;
   place-content: center;
+  align-items: center;
   background-color: white;
   border-radius: 1rem;
   align-items: center;
 }
+@media only screen and (max-width: 600px) {
+  .pet-card {
+    text-align: center;
+  }
+  .pet-card .card-body {
+    padding-top: 0;
+  }
+}
+
+.settings-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.settings-icon svg {
+  font-size: 1.3rem;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-menu {
+  border-color: hsl(226deg, 64%, 88%);
+}
+
+.dropdown-item:hover {
+  background-color: hsl(226deg, 64%, 88%);
+}
+
+.show > .btn-white.dropdown-toggle {
+  background-color: hsl(226deg, 64%, 88%);
+}
 
 .img-box {
   width: 12rem;
-  height: 12rem;
   background-size: cover;
+  padding: 2rem;
+  flex-grow: 0.5;
 }
 .img-box img {
   border-radius: 50%;
   border: 0.4rem solid hsl(226deg, 64%, 88%);
+}
+@media only screen and (max-width: 600px) {
+  .img-box {
+    padding: 1rem;
+  }
 }
 
 .shadow {
@@ -238,9 +282,31 @@ footer {
   box-shadow: 0rem 1.5rem 0.9rem -1.5rem hsl(225deg, 45%, 58%), 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
 }
 
+.shot-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 95%;
+  padding: 1rem;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.shot-card-title {
+  position: absolute;
+  top: -2.3rem;
+  right: 0.8rem;
+  z-index: -1;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  color: hsl(225deg, 78%, 72%);
+  border-radius: 0.5rem 0.5rem 0 0;
+  box-shadow: inset 0 -12px 12px -12px hsl(225deg, 78%, 72%);
+}
+
 .my-btn-group {
   grid-column: span 2;
-  margin-top: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -252,18 +318,15 @@ footer {
   color: white;
   display: block;
   background-color: hsl(225deg, 78%, 72%);
-  max-width: 12em;
   padding: 1em 2em;
   border-radius: 1em;
   text-align: center;
   font-weight: 700;
   letter-spacing: 1px;
-  margin-bottom: 2.5rem;
   transition: 0.2s all;
   z-index: 2;
   transition: all ease 0.3s;
   border: none;
-  width: 15em;
 }
 .btn-base:hover {
   color: white;
@@ -273,6 +336,10 @@ footer {
 .btn-base:active {
   transform: translateY(0.2rem);
   box-shadow: 0rem 0.4rem 0.3rem -1rem hsl(225deg, 45%, 58%);
+}
+
+.btn-max-width {
+  width: 12rem;
 }
 
 .btn-white {
@@ -460,6 +527,7 @@ input[type=radio]:focus {
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: 100;
 }
 
 .alert-success {

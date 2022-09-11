@@ -1,5 +1,5 @@
 <main class="app-main main-screen">
-   <div class="col-sm-12 content">
+   <div class="col-sm-12 content justify-content-start">
       <h1 class="text-white">
          <%= pet.petName %>
       </h1>
@@ -13,23 +13,33 @@
             <img class="img-fluid rounded p-3 shadow" src="<%= pet.squarePhoto %> " alt="photo of <%= pet.petName %> ">
          </div>
       </div>
-      <article class="col-sm-10 d-flex justify-content-around align-items-center bg-white round-bdr-1 mt-3 shadow">
-         <div class="mb-3 text-center">
-            <p class="mt-2 mb-0 title">
-               <%= latestShot.injectionSite %>
-            </p>
-            <img src="/img/shot_<%= latestShot.injectionSite %>.svg" width="60px" alt="icon for injection on <%= latestShot.injectionSite %> ">
-         </div>
-         <div>
-            <%= moment(latestShot.date.toISOString().split('T')[0]).format('L') %>
-         </div>
-         <div>
-            <%= moment(latestShot.time, "H:mm" ).format("LT") %>
-         </div>
-         <div>
-            <%= latestShot.dosage %>
-         </div>
-      </article>
+      <% if (!!latestShot) { %>
+         <article class="shot-card bg-white round-bdr-1 mt-4 shadow">
+            <span class="shot-card-title">Previous Shot</span>
+            <div class="mb-3 text-center">
+               <p class="mt-2 mb-0 title">
+                  <%= latestShot.injectionSite %>
+               </p>
+               <img src="/img/shot_<%= latestShot.injectionSite %>.svg" width="60px" alt="icon for injection on <%= latestShot.injectionSite %> ">
+            </div>
+            <div>
+               <%= moment(latestShot.date.toISOString().split('T')[0]).format('L') %>
+            </div>
+            <div>
+               <%= moment(latestShot.time, "H:mm" ).format("LT") %>
+            </div>
+            <div>
+               <%= latestShot.dosage %>
+            </div>
+         </article>
+         <% } else { %>
+            <article class="shot-card bg-white round-bdr-1 mt-3 shadow">
+               <p class="mt-1 mb-0 title">
+                  No Previous Shot Data Available
+               </p>
+            </article>
+            <% } %>
+
    </div>
 </main>
 <nav class="navbar">

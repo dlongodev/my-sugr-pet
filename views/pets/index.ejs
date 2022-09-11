@@ -1,46 +1,58 @@
-<main class="app-main main-screen">
-    <div class="col-sm-12 content text-center">
-        <h1 class="text-white">
+<main class="app-main main-screen align-items-start">
+    <div class="col-sm-12 content justify-content-start">
+        <h1 class="text-white text-center my-4">
             Manage Your Pets
         </h1>
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-around">
                 <% pets.forEach(pet=> { %>
-                    <div class="col-sm-5 m-3 p-0">
-                        <div class="pet-card py-3 shadow">
-                            <div class="img-box pt-3">
+                    <div class="col-sm-12 col-md-10 mb-3">
+                        <div class="row pet-card shadow">
+                            <div class="img-box">
                                 <a href="/pet/<%= pet._id %> "><img src="<%= pet.squarePhoto %> " class="img-fluid" alt="photo of <%= pet.petName %>"></a>
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title mt-2"><a class="txt-base" href="/pet/<%= pet._id %> ">
                                         <%= pet.petName %>
                                     </a></h5>
-                                <a class="btn btn-base mb-1" class="txt-base" href="/pet/<%= pet._id %> ">
-                                    Begin Tracking
-                                </a>
                                 <p class="card-text"><span class="title">Breed:</span>
                                     <%= pet.breed %> <br>
                                         <span class="title">Color:</span>
                                         <%= pet.color %> <br>
                                             <span class="title">DOB:</span>
-                                            <%= moment(pet.age.toISOString().split('T')[0]).format('MMMM D, YYYY') %>
+                                            <%= moment(pet.age?.toISOString().split('T')[0]).format('MMMM D, YYYY') %>
                                 </p>
                                 <div class="d-flex justify-content-around">
-                                    <a class="btn btn-sm bg-base text-white" aria-labelledby="Edit Pet Profile" href="/pet/<%= pet._id %>/edit" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Pet Profile"><i class="fas fa-pencil-alt"></i></a>
+                                    <a class="btn btn-base" class="txt-base" href="/pet/<%= pet._id %> ">
+                                        Begin Tracking
+                                    </a>
+                                    <!-- <a class="btn btn-base p-2" aria-labelledby="Edit Pet Profile" href="/pet/<%= pet._id %>/edit" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Pet Profile"><i class="fas fa-pencil-alt"></i></a>
 
                                     <form action='/pet/<%= pet.id %>?_method=DELETE' method="POST">
-                                        <button type="submit" class="btn btn-sm bg-base text-white" aria-labelledby="Delete Pet Profile" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete Pet Profile"><i class="fas fa-trash-alt"></i></button>
+                                        <button type="submit" class="btn btn-sm bg-color-danger text-white" aria-labelledby="Delete Pet Profile" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete Pet Profile"><i class="fas fa-trash-alt"></i></button>
                                     </form>
+                                </div> -->
+                                </div>
+                            </div>
+                            <div class="settings-icon">
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-white dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-gear"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item p-3 txt-dark" aria-labelledby="Edit Pet Profile" href="/pet/<%= pet._id %>/edit" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Pet Profile"><i class="fas fa-pencil-alt mr-2 t"></i> Edit Pet</a>
+                                        <form action='/pet/<%= pet.id %>?_method=DELETE' method="POST">
+                                            <button type="submit" class="dropdown-item p-3 txt-dark" aria-labelledby="Delete Pet Profile" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete Pet Profile"><i class="fas fa-trash-alt mr-2"></i> Delete Pet</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <% }) %>
-
             </div>
         </div>
-    </div>
-    </section>
+        </section>
 </main>
 <!-- Navigation -->
 <nav class="navbar">
