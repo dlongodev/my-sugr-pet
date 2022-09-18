@@ -8,12 +8,13 @@ $down-shadow: 0rem 0rem 0.5rem -0.3rem $base-color-medium,
   0rem 0rem 1.5rem 0rem rgba($base-color-medium, 0.4);
 $up-shadow: 0rem 1.5rem 0.9rem -1.5rem $base-color-medium,
   0rem 0.7rem 2rem -0.2rem rgba($base-color-medium, 0.4);
-html {
-  height: 100%;
-  height: -webkit-fill-available;
-}
+
 body {
   color: $base-color-dark;
+  height: -webkit-fill-available;
+}
+html {
+  height: 100%;
   height: -webkit-fill-available;
 }
 .containter {
@@ -68,6 +69,7 @@ a:hover {
   margin: 0 auto;
   width: 100%;
   height: 100%;
+  height: -webkit-fill-available;
   background: no-repeat url(../img/waves-01.svg);
   background-size: cover;
   background-position-y: center;
@@ -80,13 +82,14 @@ a:hover {
   }
 }
 .app-main {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   justify-items: center;
   width: 100%;
+  height: 100%;
+  height: -webkit-fill-available;
   overflow-y: auto;
   position: relative;
-  // margin-bottom: env(safe-area-inset-bottom);
 
   &::-webkit-scrollbar {
     position: absolute;
@@ -109,6 +112,8 @@ a:hover {
 }
 
 .navbar {
+  position: sticky;
+  bottom: 0;
   background-color: white;
   color: $base-color;
   box-shadow: $down-shadow;
@@ -116,7 +121,6 @@ a:hover {
   font-size: 0.8rem;
   height: 4.5rem;
   z-index: 100;
-  margin-bottom: env(safe-area-inset-bottom);
 
   svg {
     padding-top: 0.5rem;
@@ -202,7 +206,8 @@ a:hover {
   }
 }
 footer {
-  grid-column: span 1;
+  position: sticky;
+  bottom: 0;
 }
 // .content-mt {
 //   margin-top: 10vh;
