@@ -5,6 +5,16 @@ html {
 body {
   color: hsl(225deg, 30%, 24%);
 }
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
+}
+@supports not (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
+}
 
 .containter {
   height: 100%;

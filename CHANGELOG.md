@@ -12,3 +12,10 @@
 - Set up default image when user create a pet but doesn't upload a photo
 - Fixed Pet Edit to include editing pet type
 - Limited Injection History to 30 records
+
+## v1.2.1 - September 18, 2022
+
+### Added or Changed
+
+- Fix age calculation to include age that is less than 1
+- Fix mobile layout to accomodate native browser navigation bar

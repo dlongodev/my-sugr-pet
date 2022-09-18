@@ -32,9 +32,13 @@ router.get('/:id', isLoggedIn, async (req, res) => {
         return secondDate - firstDate
     })
     let latestShot = sortedDates[0]
-    let today = Date.now()
-    let petDOB = pet.age.valueOf()
-    let petAge = Math.floor((today - petDOB) / 31556952000)
+    let petAgeCalculation = moment().diff(moment(pet.age), 'years');
+    let petAge = petAgeCalculation < 1
+        ? `${moment().diff(moment(pet.age), 'months')} months old`
+        : petAgeCalculation >= 1 && petAgeCalculation < 2
+            ? `${petAgeCalculation} year old`
+            : `${petAgeCalculation} years old`
+
     res.render('pets/show', { pet, petAge, latestShot, moment })
 })
 // POST: To create a new pet
