@@ -7,8 +7,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -17,14 +15,13 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -47,8 +44,6 @@
   </p>
 </div>
 
-
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -68,20 +63,21 @@
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#contributing">Changelog</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 If you have a diabetic pet, you know keeping track of the date, time, dosage and injection location is not an easy task. This tracker is simple but extremely helpful to make sure you are doing the right thing for your pet to stay healthy. This web application comes with an easy to use UI with visuals to make sure you're making the right choice everyday for insulin injection location, personalized with your pet's photo, and useful for when you need to reference your records when visiting your vet.
 
 ### Screenshots
+
 [![Product Name Screen Shot][product-screenshot]](https://mysugrpet.herokuapp.com/)
 
 ### Original Wireframes
@@ -90,27 +86,25 @@ If you have a diabetic pet, you know keeping track of the date, time, dosage and
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 ### Built With
 
-* [Node.js](https://nodejs.org/)
-* [Express.js](https://expressjs.org/)
-* [MongoDB](https://www.mongodb.com/atlas/database)
-* [MongooseJS](https://mongoosejs.com/)
-* [<%= EJS %>](https://ejs.co/)
-* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* [HTML5](https://svelte.dev/)
-* [SCSS](https://sass-lang.com/)
-* [Passport.js](https://www.passportjs.org/)
-* [Bootstrap](https://getbootstrap.com)
-* [Multer](https://github.com/expressjs/multer)
-* [Cloudinary](https://cloudinary.com/)
+- [Node.js](https://nodejs.org/)
+- [Express.js](https://expressjs.org/)
+- [MongoDB](https://www.mongodb.com/atlas/database)
+- [MongooseJS](https://mongoosejs.com/)
+- [<%= EJS %>](https://ejs.co/)
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [HTML5](https://svelte.dev/)
+- [SCSS](https://sass-lang.com/)
+- [Passport.js](https://www.passportjs.org/)
+- [Bootstrap](https://getbootstrap.com)
+- [Multer](https://github.com/expressjs/multer)
+- [Cloudinary](https://cloudinary.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
@@ -129,17 +123,23 @@ To get a local copy up and running follow these simple example steps.
    ```js
    PORT='3300'
    MONGODB_URI='mongodb://localhost:27017/mysugrpet'
+   DB_URL="MongoDB-Database-Link"
    SECRET='thisisasecretthatwillchangelater"
    CLOUDINARY_CLOUD_NAME=put-your-cloudinary-name
    CLOUDINARY_KEY=put-your-cloudinary-key
    CLOUDINARY_SECRET=put-your-cloudinary-secret
    ```
+4. Run local environment
+   ```js
+   npm run dev
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <!-- ROADMAP -->
+
 ## Roadmap
+
 ### MVP / User Stories
 
 - [x] As a user, I can register my information so I can log in when I want to use the tracker
@@ -163,9 +163,8 @@ See the [open issues](https://github.com/dlongodev/my-sugr-pet/issues) for a ful
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -181,18 +180,24 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- CHANGELOG -->
 
+## Changelog
+
+Look at [CHANGELOG.md](/CHANGELOG.md) for this project.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- CONTACT -->
+
 ## Contact
 
 Daniele Longo - [@dlongodev](https://twitter.com/dlongodev) - dlongodev@gmail.com
@@ -201,24 +206,22 @@ Project Link: [https://github.com/dlongodev/my-sugr-pet](https://github.com/dlon
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
-* [General Assembly 9/28 SEI-Flex](https://generalassemb.ly/)
-* Billie Heidelberg - SEI Lead
-* Matt Keane - Instructional Associate
-* Paresh Sharma - Instructional Associate
-* [Colt Steele - YelpCamp Lessons](https://www.udemy.com/course/the-web-developer-bootcamp/)
-* [Pet icon by catalyststuff & app design inspiration from pikisuperstar - freepik](https://www.freepik.com/popular-vectors)
+- [General Assembly 9/28 SEI-Flex](https://generalassemb.ly/)
+- Billie Heidelberg - SEI Lead
+- Matt Keane - Instructional Associate
+- Paresh Sharma - Instructional Associate
+- [Colt Steele - YelpCamp Lessons](https://www.udemy.com/course/the-web-developer-bootcamp/)
+- [Pet icon by catalyststuff & app design inspiration from pikisuperstar - freepik](https://www.freepik.com/popular-vectors)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/dlongodev/my-sugr-pet.svg?style=for-the-badge
 [contributors-url]: https://github.com/dlongodev/my-sugr-pet/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/dlongodev/my-sugr-pet.svg?style=for-the-badge
