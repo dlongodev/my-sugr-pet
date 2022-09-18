@@ -69,8 +69,6 @@ a:hover {
   margin: 0 auto;
   width: 100%;
   height: 100vh;
-  display: grid;
-  grid-template-columns: 2fr;
   background: no-repeat url(../img/waves-01.svg);
   background-size: cover;
   background-position-y: center;
@@ -83,10 +81,8 @@ a:hover {
   }
 }
 .app-main {
-  grid-column: 1 / span 2;
   display: grid;
-  grid-template-columns: 6fr;
-  align-items: center;
+  grid-template-columns: 1fr;
   justify-items: center;
   width: 100%;
   overflow-y: auto;
@@ -309,7 +305,8 @@ footer {
   font-weight: 700;
   color: $base-color;
   border-radius: 0.5rem 0.5rem 0 0;
-  box-shadow: inset 0 -12px 12px -12px $base-color;
+  box-shadow: inset 0 -12px 12px -12px $base-color,
+    0px 6px 13px -1px rgba($base-color-medium, 0.4);
 }
 
 // Buttons --------------
@@ -444,7 +441,10 @@ input[date] {
   width: 2rem;
   border-radius: 100%;
 }
-
+.shot-form-container {
+  display: flex;
+  flex-direction: column;
+}
 .shot-form {
   background: no-repeat url(../img/dog-shot-position.png);
   width: 100%;
@@ -463,10 +463,10 @@ input[date] {
 }
 .shot-grid {
   height: 22rem;
-  width: 23rem;
+  width: 20rem;
   display: grid;
   place-content: center;
-  grid-template-columns: 1fr 2rem 4rem 1fr;
+  grid-template-columns: 1fr 3.5rem 2.5rem 1fr;
   justify-items: center;
   align-content: space-evenly;
   align-items: center;

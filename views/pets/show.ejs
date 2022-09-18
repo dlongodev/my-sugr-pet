@@ -6,7 +6,7 @@
       <p class="h6 text-center mb-3">
          <%= pet.breed %>
             <%= pet.kind %>, <%= petAge %> years old <br>
-                  Born <%= moment(pet.age.toISOString().split('T')[0]).format('MMMM D, YYYY') %>
+                  Born <%= moment(pet.age).utc().format('MMMM D, YYYY') %>
       </p>
       <div class="col-sm-6">
          <div class="bg-white rounded">
@@ -14,19 +14,19 @@
          </div>
       </div>
       <% if (!!latestShot) { %>
-         <article class="shot-card bg-white round-bdr-1 mt-4 shadow">
+         <article class="shot-card bg-white round-bdr-1 mt-5 shadow p-1">
             <span class="shot-card-title">Previous Shot</span>
-            <div class="mb-3 text-center">
+            <div class="text-center mb-1">
                <p class="mt-2 mb-0 title">
                   <%= latestShot.injectionSite %>
                </p>
                <img src="/img/shot_<%= latestShot.injectionSite %>.svg" width="60px" alt="icon for injection on <%= latestShot.injectionSite %> ">
             </div>
             <div>
-               <%= moment(latestShot.date.toISOString().split('T')[0]).format('L') %>
+               <%= moment(latestShot.date).utc().format('MM/DD/YY') %>
             </div>
             <div>
-               <%= moment(latestShot.time, "H:mm" ).format("LT") %>
+               <%= moment(latestShot.time, "H:mm" ).format("h:mma") %>
             </div>
             <div>
                <%= latestShot.dosage %>
@@ -35,13 +35,14 @@
          <% } else { %>
             <article class="shot-card bg-white round-bdr-1 mt-3 shadow">
                <p class="mt-1 mb-0 title">
-                  No Previous Shot Data Available
+                  No Previous Injection History Available
                </p>
             </article>
             <% } %>
 
    </div>
 </main>
+<!-- navigation -->
 <nav class="navbar">
    <div>
       <a href="/pet" class="navbar-link"><i class="fa-solid fa-paw"></i>

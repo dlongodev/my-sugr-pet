@@ -6,7 +6,7 @@
                 <h2 class="h5 txt-light">Insulin Injections History</h5>
     </div>
     <div class="col-sm-12 col-md-10 d-flex flex-column align-items-center">
-        <% sortedDates.forEach(shot=> { %>
+        <% if (!!sortedDates.length) {sortedDates.forEach(shot=> { %>
             <article class="col-sm-10 d-flex justify-content-around align-items-center bg-white round-bdr-1 mb-3 shadow">
                 <div class="mb-3 text-center">
                     <p class="mt-2 mb-0 title">
@@ -15,10 +15,10 @@
                     <img src="/img/shot_<%= shot.injectionSite %>.svg" width="60px" alt="icon for injection on <%= shot.injectionSite %> ">
                 </div>
                 <div>
-                    <%= moment(shot.date.toISOString().split('T')[0]).format('L') %>
+                    <%= moment(shot.date).utc().format('MM/DD/YY') %>
                 </div>
                 <div>
-                    <%= moment(shot.time, "H:mm" ).format("LT") %>
+                    <%= moment(shot.time, "H:mm" ).format("h:mma") %>
                 </div>
                 <div>
                     <%= shot.dosage %>
@@ -27,7 +27,13 @@
                     <button type="submit" class="btn btn-sm bg-base text-white" aria-label="Delete"><i class="fas fa-trash-alt"></i></button>
                 </form>
             </article>
-            <% }) %>
+            <% })} else { %>
+                <article class="shot-card bg-white round-bdr-1 mt-3 shadow">
+                    <p class="mt-1 mb-0 title">
+                        No Injection History Available
+                    </p>
+                </article>
+                <% } %>
 
     </div>
 </main>
@@ -47,7 +53,7 @@
         </div>
     </div>
     <div>
-        <a href="<%= pet.id %>/shots/show" class="navbar-link">
+        <a href="./show" class="navbar-link">
             <i class="fa-solid fa-clock-rotate-left"></i>
             History</a>
     </div>

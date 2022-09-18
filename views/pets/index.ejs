@@ -20,7 +20,7 @@
                                         <span class="title">Color:</span>
                                         <%= pet.color %> <br>
                                             <span class="title">DOB:</span>
-                                            <%= moment(pet.age?.toISOString().split('T')[0]).format('MMMM D, YYYY') %>
+                                            <%= moment(pet.age).utc().format('MMMM D, YYYY') %>
                                 </p>
                                 <div class="d-flex justify-content-around">
                                     <a class="btn btn-base" class="txt-base" href="/pet/<%= pet._id %> ">

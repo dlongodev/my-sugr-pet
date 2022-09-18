@@ -7,24 +7,48 @@ const moment = require('moment')
 
 // INDEX for shots history
 router.get('/:id/shots/show', async (req, res) => {
-    const pet = await Pet.findById(req.params.id).populate('shots')
+    const pet = await Pet.findById(req.params.id).populate({ path: 'shots', options: { sort: { 'date': -1 }, limit: 30 } })
     let sortedDates = pet.shots.sort((first, second) => {
-        // let firstTime = Number(first.time.split(':')[0]) * 60 + Number(first.time.split(':')[1]) * 1000
-        // let secondTime = Number(second.time.split(':')[0]) * 60 + Number(second.time.split(':')[1]) * 1000
         let firstDate = first.date.getTime()
         let secondDate = second.date.getTime()
         return secondDate - firstDate
     })
-    // console.log(sortedDates)
     res.render('shots/show', { pet, sortedDates, moment })
 });
 
 // GET: form to create new shot
 router.get('/:id/shots/new', async (req, res) => {
     const pet = await Pet.findById(req.params.id).populate('shots')
-    // let frontRight = await Pet.findById({ _id: req.params.id }, { 'shots.injectionLocation': 'front-right' })
-    // console.log(frontRight.time, frontRight.date)
-    res.render('shots/new', { pet, })
+    let sortedDates = !!pet.shots ? pet.shots.sort((first, second) => {
+        let firstDate = first.date.getTime()
+        let secondDate = second.date.getTime()
+        return secondDate - firstDate
+    }) : null
+    const latestShots = {
+        frontRight: sortedDates.find(shot => shot.injectionSite === "front-right"),
+        frontLeft: sortedDates.find(shot => shot.injectionSite === "front-left"),
+        backRight: sortedDates.find(shot => shot.injectionSite === "back-right"),
+        backLeft: sortedDates.find(shot => shot.injectionSite === "back-left")
+    }
+    const latestData = {
+        frontRight: {
+            date: !!latestShots.frontRight ? moment(latestShots.frontRight.date).format(" MM/DD/YY") : "no data",
+            time: !!latestShots.frontRight ? moment(latestShots.frontRight.time, "H:mm").format("h:mma") : null
+        },
+        frontLeft: {
+            date: !!latestShots.frontLeft ? moment(latestShots.frontLeft.date).format(" MM/DD/YY") : "no data",
+            time: !!latestShots.frontLeft ? moment(latestShots?.frontLeft.time, "H:mm").format("h:mma") : null
+        },
+        backRight: {
+            date: !!latestShots.backRight ? moment(latestShots.backRight.date).format(" MM/DD/YY") : "no data",
+            time: !!latestShots.backRight ? moment(latestShots?.backRight.time, "H:mm").format("h:mma") : null
+        },
+        backLeft: {
+            date: !!latestShots.backLeft ? moment(latestShots.backLeft.date).format(" MM/DD/YY") : "no data",
+            time: !!latestShots.backLeft ? moment(latestShots?.backLeft.time, "H:mm").format("h:mma") : null
+        }
+    }
+    res.render('shots/new', { pet, latestData })
 })
 
 // POST: To create a new shot for based on pet id
