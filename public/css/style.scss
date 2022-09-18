@@ -10,10 +10,11 @@ $up-shadow: 0rem 1.5rem 0.9rem -1.5rem $base-color-medium,
   0rem 0.7rem 2rem -0.2rem rgba($base-color-medium, 0.4);
 html {
   height: 100%;
+  height: -webkit-fill-available;
 }
 body {
   color: $base-color-dark;
-  padding-bottom: env(safe-area-inset-bottom);
+  height: -webkit-fill-available;
 }
 .containter {
   height: 100%;
