@@ -4,8 +4,6 @@ if (process.env.NODE_ENV !== "production") {
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const livereload = require('livereload')
-const connectLivereload = require('connect-livereload')
 
 const userController = require('./controllers/userController')
 const petController = require('./controllers/petController')
@@ -14,23 +12,14 @@ const shotsController = require('./controllers/shotsController')
 const expressEjsLoyouts = require('express-ejs-layouts')
 const methodOverride = require('method-override')
 const session = require('express-session')
+const MemoryStore = require('memorystore')(session)
 const flash = require('connect-flash')
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
 const User = require('./models/user')
 
 // CONFIGURATION //////////////////////////////////
-const liveReloadServer = livereload.createServer()
-liveReloadServer.watch(__dirname, "views")
-
-liveReloadServer.server.once("connection", () => {
-    setTimeout(() => {
-        liveReloadServer.refresh("/");
-    }, 50)
-})
-
 app.use(express.static(__dirname + '/public'))
-app.use(connectLivereload())
 app.use(methodOverride('_method'))
 app.use(expressEjsLoyouts)
 
@@ -41,14 +30,12 @@ app.set('view engine', 'ejs')
 const secret = process.env.SECRET || "thisisasessionsecretthatwillchange"
 
 const sessionConfig = {
-    secret,
+    cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+        checkPeriod: 86400000 // prune expired entries every 24h
+    }),
     resave: false,
-    saveUninitialized: true,
-    cookie: {
-        httpOnly: true,
-        expirers: Date.now() + 1000 * 60 * 60 * 24 * 7,
-        maxAge: 1000 * 60 * 60 * 24 * 7
-    }
+    secret: secret
 }
 app.use(session(sessionConfig))
 app.use(flash())
@@ -82,7 +69,7 @@ const isLoggedIn = (req, res, next) => {
 
 // rendering home page------------------
 app.get('/', (req, res) => {
-     res.render('index')
+    res.render('index')
 })
 
 // models controllers------------------
