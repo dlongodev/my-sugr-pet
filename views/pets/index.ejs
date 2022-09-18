@@ -22,16 +22,10 @@
                                             <span class="title">DOB:</span>
                                             <%= moment(pet.age).utc().format('MMMM D, YYYY') %>
                                 </p>
-                                <div class="d-flex justify-content-around">
+                                <div class="d-flex justify-content-center justify-content-sm-start">
                                     <a class="btn btn-base" class="txt-base" href="/pet/<%= pet._id %> ">
                                         Begin Tracking
                                     </a>
-                                    <!-- <a class="btn btn-base p-2" aria-labelledby="Edit Pet Profile" href="/pet/<%= pet._id %>/edit" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Pet Profile"><i class="fas fa-pencil-alt"></i></a>
-
-                                    <form action='/pet/<%= pet.id %>?_method=DELETE' method="POST">
-                                        <button type="submit" class="btn btn-sm bg-color-danger text-white" aria-labelledby="Delete Pet Profile" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete Pet Profile"><i class="fas fa-trash-alt"></i></button>
-                                    </form>
-                                </div> -->
                                 </div>
                             </div>
                             <div class="settings-icon">
