@@ -102,7 +102,7 @@ a:hover {
 }
 
 .login-screen {
-  height: calc(100% - 2rem);
+  height: calc(100vh - 2rem);
 }
 
 .main-screen {
