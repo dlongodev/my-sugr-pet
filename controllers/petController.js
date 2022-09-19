@@ -43,19 +43,23 @@ router.get('/:id', isLoggedIn, async (req, res) => {
 })
 // POST: To create a new pet
 router.post('/', isLoggedIn, upload.single('photo'), async (req, res) => {
-    console.log(req.body)
     const defaultCatImg = "https://res.cloudinary.com/dsey1wpxj/image/upload/v1662388316/MySugrPet/a1mwrvz9byyogunlnozv.png"
     const defaultDogImg = "https://res.cloudinary.com/dsey1wpxj/image/upload/v1662388316/MySugrPet/ftdfzqn1bjmfzrsvmffa.png"
-    const newPet = new Pet(req.body)
-    if (!!req.file) {
-        newPet.photo.url = req.file.path
-        newPet.photo.filename = req.file.filename
-    } else {
-        newPet.photo.url = req.body.kind === "cat" ? defaultCatImg : defaultDogImg
+    try {
+        const newPet = new Pet(req.body)
+        if (!!req.file) {
+            newPet.photo.url = req.file.path
+            newPet.photo.filename = req.file.filename
+        } else {
+            newPet.photo.url = req.body.kind === "cat" ? defaultCatImg : defaultDogImg
+        }
+        newPet.owner = req.user._id
+        await newPet.save()
+        res.redirect(`/pet/${newPet.id}`)
+    } catch (error) {
+        req.flash('error', error.message)
+        res.redirect(`/pet/new`)
     }
-    newPet.owner = req.user._id
-    await newPet.save()
-    res.redirect(`/pet/${newPet.id}`)
 })
 
 // GET: to get form to edit pet info ~> /pet/:id/edit
@@ -66,15 +70,20 @@ router.get('/:id/edit', isLoggedIn, async (req, res) => {
 
 // PUT: edit the data for the pet ~> /pet/:id
 router.put('/:id', isLoggedIn, upload.single('photo'), async (req, res, next) => {
-    const editPet = await Pet.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    if (!!req.file) {
-        editPet.photo.url = req.file.path
-        editPet.photo.filename = req.file.filename
-        await editPet.save()
-        console.log(editPet)
+    try {
+        const editPet = await Pet.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        if (!!req.file) {
+            editPet.photo.url = req.file.path
+            editPet.photo.filename = req.file.filename
+            await editPet.save()
+            console.log(editPet)
+        }
+        req.flash('success', 'Successfully updated your pet information!')
+        res.redirect(`/pet`)
+    } catch (error) {
+        req.flash('error', error.message)
+        res.redirect(`/pet/${req.params.id}/edit`)
     }
-    req.flash('success', 'Successfully updated your pet information!')
-    res.redirect(`/pet`)
 })
 
 // DELETE: delete the pet from database and photo ~> /pet/:id

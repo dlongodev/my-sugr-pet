@@ -55,11 +55,16 @@ router.get('/:id/shots/new', async (req, res) => {
 router.post('/:id/shots', async (req, res) => {
     const pet = await Pet.findById(req.params.id)
     const newShot = await new Shot(req.body)
-    pet.shots.unshift(newShot)
-    await newShot.save()
-    await pet.save()
-    req.flash('success', 'You successfully tracked a new insulin injection!')
-    res.redirect(`/pet/${pet._id}/shots/show`)
+    try {
+        pet.shots.unshift(newShot)
+        await newShot.save()
+        await pet.save()
+        req.flash('success', 'You successfully tracked a new insulin injection!')
+        res.redirect(`/pet/${pet._id}/shots/show`)
+    } catch (error) {
+        req.flash('error', error.message)
+        res.redirect(`/pet/${pet._id}/shots/new`)
+    }
 })
 
 // GET: for editing shots ~> (not sure if needed yet)

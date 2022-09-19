@@ -3,11 +3,11 @@ const mongoose = require('../db/connection')
 const Shot = require('./shots')
 
 const PetSchema = new mongoose.Schema({
-    petName: String,
+    petName: { type: String, required: true },
     kind: String,
     breed: String,
     color: String,
-    age: Date,
+    age: { type: Date, required: true },
     photo: {
         url: String,
         filename: String
