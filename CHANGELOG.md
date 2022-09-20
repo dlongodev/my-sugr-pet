@@ -24,5 +24,5 @@
 
 ### Added or Changed
 
-- Add form validation, form, and schema required fields
+- Add form validation, form and schema required fields
 - Add fluid font sizes 
