@@ -2,12 +2,15 @@ $base-color: hsl(225, 78%, 72%);
 $base-color-alpha: hsla(225, 78%, 72%, 0.4);
 $base-color-dark: hsl(225, 30%, 24%);
 $base-color-light: hsl(226, 64%, 88%);
-$base-color-medium: hsl(225, 45%, 58%);
+$base-color-medium: hsl(225, 45%, 40%);
 $color-danger: hsl(349, 76%, 67%);
 $down-shadow: 0rem 0rem 0.5rem -0.3rem $base-color-medium,
   0rem 0rem 1.5rem 0rem rgba($base-color-medium, 0.4);
 $up-shadow: 0rem 1.5rem 0.9rem -1.5rem $base-color-medium,
   0rem 0.7rem 2rem -0.2rem rgba($base-color-medium, 0.4);
+$fluid-font-1: clamp(2rem, 4vw, 3.5rem);
+$fluid-font-2: clamp(1rem, 2vw, 1.5rem);
+$fluid-font-3: clamp(0.8rem, 1.6vw, 1rem);
 
 body {
   color: $base-color-dark;
@@ -46,7 +49,17 @@ html {
 .bg-color-danger {
   background-color: $color-danger;
 }
-
+.h1 {
+  font-size: $fluid-font-1;
+  color: white;
+}
+.h2 {
+  font-size: $fluid-font-2;
+  color: $base-color-light;
+}
+a {
+  color: $base-color;
+}
 a:hover {
   color: $base-color-medium;
 }
@@ -102,10 +115,12 @@ a:hover {
 
 .login-screen {
   height: calc(100vh - 2rem);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .main-screen {
   height: calc(100% - 4.5rem);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .navbar {
@@ -281,6 +296,14 @@ footer {
   }
 }
 
+.main-pet-photo {
+  max-width: 60vw;
+  max-height: auto;
+  img {
+    border: 1rem solid white;
+  }
+}
+
 .shadow {
   -webkit-box-shadow: 0rem 1.5rem 0.9rem -1.5rem $base-color-medium,
     0rem 0.7rem 2rem -0.2rem rgba($base-color-medium, 0.4);
@@ -292,24 +315,34 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 95%;
-  padding: 1rem;
-  margin-top: 1rem;
+  width: min(30rem, 95%);
+  padding: 0.6rem;
+  margin-top: 0.6rem;
   position: relative;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: $fluid-font-3;
 }
 
 .shot-card-title {
   position: absolute;
-  top: -2.3rem;
+  top: -2.1rem;
   right: 0.8rem;
   z-index: -1;
   background-color: white;
   padding: 0.5rem 1rem;
   font-weight: 700;
+  font-size: $fluid-font-3;
   color: $base-color;
   border-radius: 0.5rem 0.5rem 0 0;
   box-shadow: inset 0 -12px 12px -12px $base-color,
     0px 6px 13px -1px rgba($base-color-medium, 0.4);
+}
+
+.shot-history-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(30rem, 90%);
 }
 
 // Buttons --------------
@@ -454,13 +487,20 @@ input[date] {
 .shot-form-container {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  align-items: center;
 }
 .shot-form {
-  background: no-repeat url(../img/dog-shot-position.png);
-  width: 100%;
-  background-size: cover;
+  position: relative;
+  // background: no-repeat url(../img/dog-shot-position.png);
+  // background-size: cover;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  text-align: center;
+
+  img {
+    height: 25rem;
+  }
 
   label {
     background-color: rgba($base-color-light, 0.2);
@@ -472,11 +512,14 @@ input[date] {
   }
 }
 .shot-grid {
-  height: 22rem;
-  width: 20rem;
+  position: absolute;
+  top: 40%;
+  right: 50%;
+  left: 50%;
   display: grid;
   place-content: center;
-  grid-template-columns: 1fr 3.5rem 2.5rem 1fr;
+  grid-template-columns: 1fr 3rem 4rem 1fr;
+  grid-template-rows: 7rem 7rem;
   justify-items: center;
   align-content: space-evenly;
   align-items: center;

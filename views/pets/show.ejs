@@ -1,16 +1,16 @@
-<main class="app-main main-screen">
+<main class="app-main main-screen my-2">
    <div class="col-sm-12 content justify-content-start">
-      <h1 class="text-white">
+      <h1 class="h1">
          <%= pet.petName %>
       </h1>
-      <p class="h6 text-center mb-3">
+      <p class="h2 text-center mb-3">
          <%= pet.breed %>
             <%= pet.kind %>, <%= petAge %><br>
                   Born <%= moment(pet.age).utc().format('MMMM D, YYYY') %>
       </p>
-      <div class="col-sm-6">
-         <div class="bg-white rounded">
-            <img class="img-fluid rounded p-3 shadow" src="<%= pet.squarePhoto %> " alt="photo of <%= pet.petName %> ">
+      <div class="col-sm-6 d-flex justify-content-center">
+         <div class="rounded main-pet-photo">
+            <img class="img-fluid rounded shadow" src="<%= pet.squarePhoto %> " alt="photo of <%= pet.petName %> ">
          </div>
       </div>
       <% if (!!latestShot) { %>

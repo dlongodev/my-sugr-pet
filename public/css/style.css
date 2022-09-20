@@ -33,7 +33,7 @@ html {
 }
 
 .txt-medium {
-  color: hsl(225deg, 45%, 58%);
+  color: hsl(225deg, 45%, 40%);
 }
 
 .bg-base {
@@ -44,8 +44,22 @@ html {
   background-color: hsl(349deg, 76%, 67%);
 }
 
+.h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: white;
+}
+
+.h2 {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: hsl(226deg, 64%, 88%);
+}
+
+a {
+  color: hsl(225deg, 78%, 72%);
+}
+
 a:hover {
-  color: hsl(225deg, 45%, 58%);
+  color: hsl(225deg, 45%, 40%);
 }
 
 .h6 {
@@ -53,7 +67,7 @@ a:hover {
 }
 
 .title {
-  color: hsl(225deg, 45%, 58%);
+  color: hsl(225deg, 45%, 40%);
   font-weight: 600;
   text-transform: capitalize;
 }
@@ -77,8 +91,8 @@ a:hover {
 @media only screen and (min-width: 600px) {
   .my-container {
     max-width: 700px;
-    -webkit-box-shadow: 0rem 0rem 0.5rem -0.3rem hsl(225deg, 45%, 58%), 0rem 0rem 1.5rem 0rem rgba(100, 124, 196, 0.4);
-    box-shadow: 0rem 0rem 0.5rem -0.3rem hsl(225deg, 45%, 58%), 0rem 0rem 1.5rem 0rem rgba(100, 124, 196, 0.4);
+    -webkit-box-shadow: 0rem 0rem 0.5rem -0.3rem hsl(225deg, 45%, 40%), 0rem 0rem 1.5rem 0rem rgba(56, 79, 148, 0.4);
+    box-shadow: 0rem 0rem 0.5rem -0.3rem hsl(225deg, 45%, 40%), 0rem 0rem 1.5rem 0rem rgba(56, 79, 148, 0.4);
   }
 }
 
@@ -103,10 +117,12 @@ a:hover {
 
 .login-screen {
   height: calc(100vh - 2rem);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .main-screen {
   height: calc(100% - 4.5rem);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .navbar {
@@ -114,7 +130,7 @@ a:hover {
   bottom: 0;
   background-color: white;
   color: hsl(225deg, 78%, 72%);
-  box-shadow: 0rem 0rem 0.5rem -0.3rem hsl(225deg, 45%, 58%), 0rem 0rem 1.5rem 0rem rgba(100, 124, 196, 0.4);
+  box-shadow: 0rem 0rem 0.5rem -0.3rem hsl(225deg, 45%, 40%), 0rem 0rem 1.5rem 0rem rgba(56, 79, 148, 0.4);
   padding: 0 1.5rem;
   font-size: 0.8rem;
   height: 4.5rem;
@@ -274,32 +290,50 @@ footer {
   }
 }
 
+.main-pet-photo {
+  max-width: 60vw;
+  max-height: auto;
+}
+.main-pet-photo img {
+  border: 1rem solid white;
+}
+
 .shadow {
-  -webkit-box-shadow: 0rem 1.5rem 0.9rem -1.5rem hsl(225deg, 45%, 58%), 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
-  box-shadow: 0rem 1.5rem 0.9rem -1.5rem hsl(225deg, 45%, 58%), 0rem 0.7rem 2rem -0.2rem rgba(100, 124, 196, 0.4);
+  -webkit-box-shadow: 0rem 1.5rem 0.9rem -1.5rem hsl(225deg, 45%, 40%), 0rem 0.7rem 2rem -0.2rem rgba(56, 79, 148, 0.4);
+  box-shadow: 0rem 1.5rem 0.9rem -1.5rem hsl(225deg, 45%, 40%), 0rem 0.7rem 2rem -0.2rem rgba(56, 79, 148, 0.4);
 }
 
 .shot-card {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 95%;
-  padding: 1rem;
-  margin-top: 1rem;
+  width: min(30rem, 95%);
+  padding: 0.6rem;
+  margin-top: 0.6rem;
   position: relative;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
 }
 
 .shot-card-title {
   position: absolute;
-  top: -2.3rem;
+  top: -2.1rem;
   right: 0.8rem;
   z-index: -1;
   background-color: white;
   padding: 0.5rem 1rem;
   font-weight: 700;
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
   color: hsl(225deg, 78%, 72%);
   border-radius: 0.5rem 0.5rem 0 0;
-  box-shadow: inset 0 -12px 12px -12px hsl(225deg, 78%, 72%), 0px 6px 13px -1px rgba(100, 124, 196, 0.4);
+  box-shadow: inset 0 -12px 12px -12px hsl(225deg, 78%, 72%), 0px 6px 13px -1px rgba(56, 79, 148, 0.4);
+}
+
+.shot-history-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(30rem, 90%);
 }
 
 .my-btn-group {
@@ -327,12 +361,12 @@ footer {
 }
 .btn-base:hover {
   color: white;
-  background-color: hsl(225deg, 45%, 58%);
+  background-color: hsl(225deg, 45%, 40%);
   text-decoration: none;
 }
 .btn-base:active {
   transform: translateY(0.2rem);
-  box-shadow: 0rem 0.4rem 0.3rem -1rem hsl(225deg, 45%, 58%);
+  box-shadow: 0rem 0.4rem 0.3rem -1rem hsl(225deg, 45%, 40%);
 }
 
 .btn-max-width {
@@ -355,7 +389,7 @@ footer {
 }
 .btn-outline-light:hover {
   background-color: hsl(226deg, 64%, 88%);
-  color: hsl(225deg, 45%, 58%);
+  color: hsl(225deg, 45%, 40%);
   border-color: hsl(226deg, 64%, 88%);
 }
 
@@ -436,7 +470,7 @@ input[date] {
 }
 
 .tick {
-  background-color: hsl(225deg, 45%, 58%);
+  background-color: hsl(225deg, 45%, 40%);
   color: white;
   font-size: 1rem;
   padding: 6px 6px;
@@ -448,14 +482,18 @@ input[date] {
 .shot-form-container {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  align-items: center;
 }
 
 .shot-form {
-  background: no-repeat url(../img/dog-shot-position.png);
-  width: 100%;
-  background-size: cover;
+  position: relative;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  text-align: center;
+}
+.shot-form img {
+  height: 25rem;
 }
 .shot-form label {
   background-color: rgba(205, 214, 244, 0.2);
@@ -467,11 +505,14 @@ input[date] {
 }
 
 .shot-grid {
-  height: 22rem;
-  width: 20rem;
+  position: absolute;
+  top: 40%;
+  right: 50%;
+  left: 50%;
   display: grid;
   place-content: center;
-  grid-template-columns: 1fr 3.5rem 2.5rem 1fr;
+  grid-template-columns: 1fr 3rem 4rem 1fr;
+  grid-template-rows: 7rem 7rem;
   justify-items: center;
   align-content: space-evenly;
   align-items: center;
@@ -528,7 +569,7 @@ input[type=radio]:focus {
 }
 
 .shot-history {
-  color: hsl(225deg, 45%, 58%);
+  color: hsl(225deg, 45%, 40%);
   font-size: 0.7rem;
   font-weight: 700;
 }
@@ -544,7 +585,7 @@ input[type=radio]:focus {
 .alert-success {
   background-color: hsl(226deg, 64%, 88%);
   border-color: hsl(225deg, 78%, 72%);
-  color: hsl(225deg, 45%, 58%);
+  color: hsl(225deg, 45%, 40%);
 }
 
 .alert-danger {

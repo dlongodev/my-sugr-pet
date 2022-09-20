@@ -1,12 +1,12 @@
 <main class="app-main main-screen">
-    <div class="shot-form-container mx-3">
-        <div class="text-center my-2">
-            <h1 class="text-white mb-0">
+    <div class="shot-form-container m-3">
+        <div class="text-center mb-2">
+            <h1 class="h1 mb-0">
                 <%= pet.petName %>
                     </h3>
-                    <h5 class="txt-light m-0">New Insulin Injection Entry</h5>
+                    <h2 class="h2 m-0">New Insulin Injection Entry</h2>
         </div>
-        <form action="/pet/<%= pet.id %>/shots" method="POST" class="needs-validation" novalidate>
+        <form action="/pet/<%= pet.id %>/shots" method="POST" class="needs-validation col-sm-12 col-md-8" novalidate>
             <fieldset class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="date" for="date">Date:</span>
@@ -29,6 +29,7 @@
             </fieldset>
             <div class="shot-form bg-white shadow mb-4">
                 <p class="input-group-text justify-content-center mb-3">Injection Location</p>
+                <img src="/img/dog-shot-position.png" alt="">
                 <fieldset class="shot-grid">
                     <label class="text-right" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= latestData.frontLeft.date %>
                         <%= latestData.frontLeft.time %> " for="front-left">
