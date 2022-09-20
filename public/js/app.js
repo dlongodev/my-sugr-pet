@@ -34,3 +34,11 @@ let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
 })
+
+// handle mobile viewport height --> https://stackoverflow.com/questions/62114804/how-to-do-calc-function-on-vendor-prefixed-properties-in-css
+function appHeight() {
+    const doc = document.documentElement;
+    doc.style.setProperty('--vh', (window.innerHeight * .01) + 'px');
+}
+window.addEventListener('resize', appHeight);
+appHeight();
