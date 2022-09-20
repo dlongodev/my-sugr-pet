@@ -19,3 +19,10 @@
 
 - Fix age calculation to include age that is less than 1
 - Fix mobile layout to accomodate native browser navigation bar
+
+## v1.2.2 - September 19, 2022
+
+### Added or Changed
+
+- Add form validation, form, and schema required fields
+- Add fluid font sizes 
