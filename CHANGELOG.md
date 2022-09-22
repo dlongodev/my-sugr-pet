@@ -4,25 +4,25 @@
 
 ### Added or Changed
 
-- New navigation bar for improved UX
-- Latest injection when viewing pet page
-- New Injection has correct latest injections dates tooltips
-- Handled conditions for No Data when user creates a new pet
-- Updated the Manage Pet page for each pet to have a admin menu
-- Set up default image when user create a pet but doesn't upload a photo
-- Fixed Pet Edit to include editing pet type
-- Limited Injection History to 30 records
+- New navigation bar for improved UX.
+- Latest injection when viewing a pet main page.
+- New Injection form has correct latest injections dates tooltips.
+- Handled conditions for `No Data` when user creates a new pet.
+- Updated the Manage Pet page for each pet to have an admin menu to edit or delete pet.
+- Set up default image when user creates a pet but doesn't upload a photo.
+- Fixed Pet Edit form to include editing pet type option.
+- Limited Injection History to 30 records.
 
 ## v1.2.1 - September 18, 2022
 
 ### Added or Changed
 
-- Fix age calculation to include age that is less than 1
+- Fix age calculation display age in months if age count that is less than 1 year.
 - Fix mobile layout to accomodate native browser navigation bar
 
 ## v1.2.2 - September 19, 2022
 
 ### Added or Changed
 
-- Add form validation, form and schema required fields
-- Add fluid font sizes 
+- Add form validation for required fields and error handlers for all post routes.
+- Add fluid font sizes.
