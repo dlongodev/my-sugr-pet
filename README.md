@@ -36,7 +36,7 @@
     <a href="https://github.com/dlongodev/my-sugr-pet"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://mysugrpet.herokuapp.com/">View Demo</a>
+    <a href="https://mysugrpet.onrender.com/">View Demo</a>
     ·
     <a href="https://github.com/dlongodev/my-sugr-pet/issues">Report Bug</a>
     ·
@@ -78,11 +78,11 @@ If you have a diabetic pet, you know keeping track of the date, time, dosage and
 
 ### Screenshots
 
-[![Product Name Screen Shot][product-screenshot]](https://mysugrpet.herokuapp.com/)
+[![Product Name Screen Shot][product-screenshot]](https://mysugrpet.onrender.com/)
 
 ### Original Wireframes
 
-[![Product Name Screen Shot][product-wireframe]](https://mysugrpet.herokuapp.com/)
+[![Product Name Screen Shot][product-wireframe]](https://mysugrpet.onrender.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
